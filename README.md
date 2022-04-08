@@ -36,7 +36,7 @@ git add .
 
 git commit -m <commit name>
 
-git push origin origin <your-branch>
+git push origin <your-branch>
 
 ```
 
