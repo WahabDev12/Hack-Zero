@@ -14,4 +14,25 @@ const createCommunity = (req, res) => {
     newCommunity.save()
 }
 
-module.exports = {getCommunities, createCommunity}
+const joinCommunity = (req, res) => {
+    Community.findOneAndUpdate({_id: req.params.id},{
+        $addToSet:{
+            members:req.body.user._id
+        }
+    }).then(() => {
+        console.log("member successfully added")
+    })
+        
+}
+
+const leaveCommunity = (req, res) => {
+    Community.findOneAndUpdate({_id: req.params.id}, {
+        $pull:{
+            members:req.body.user._id
+        }
+    }).then(() => {
+        console.log("member removed from community")
+    })
+}
+
+module.exports = {getCommunities, createCommunity, joinCommunity, leaveCommunity}

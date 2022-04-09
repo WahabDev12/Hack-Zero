@@ -15,4 +15,10 @@ const createPost = (req, res) => {
     newPost.save()
 }
 
-module.exports = {getPosts, createPost}
+const getPostById = (req, res) => {
+    Post.findOne({_id: req.params.postId})
+        .then((post) => {
+            res.status(200).json(post)
+        })
+}
+module.exports = {getPosts, createPost, getPostById}
