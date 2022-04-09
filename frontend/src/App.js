@@ -1,8 +1,19 @@
+import {BrowserRouter as Router,Route,Routes} from "react-router-dom";
+import Main from "./components/Chillax/Main";
+import Home from "./components/Home";
 
 const App = () => {
   return (
     <div className="App">
-        <h2>Hack Zero</h2>
+        <Router>  
+              <Routes>
+                  
+                  <Route exact path="/" element={<Home />} />
+                  <Route path="/chillax" element={<Main />} />
+                 
+              </Routes>
+
+            </Router>
     </div>
   );
 }
