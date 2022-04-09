@@ -5,7 +5,11 @@ var PostSchema = new Schema({
     title:{
         type: String,
         required: true
-    }
+    },
+    subContent:{
+        type: String,
+        required: true
+    },
     
 })
 
