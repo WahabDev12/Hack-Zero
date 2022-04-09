@@ -10,13 +10,14 @@ const getPosts = (req, res) => {
 const createPost = (req, res) => {
     const newPost = new Post({
         title: req.body.title,
-        subContent: req.body.subContent
+        subContent: req.body.subContent,
+        communityId: req.params.communityId
     })
     newPost.save()
 }
 
 const getPostById = (req, res) => {
-    Post.findOne({_id: req.params.postId})
+    Post.findOne({_id: req.params.id})
         .then((post) => {
             res.status(200).json(post)
         })

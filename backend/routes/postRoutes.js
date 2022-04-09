@@ -3,8 +3,8 @@ const router = Router()
 const {getPosts, createPost, getPostById} = require('../controllers/postController')
 
 router.get('/', getPosts)
-router.get('/:id', getPostById)
-router.post('/create', createPost)
+router.get('get/:id', getPostById)
+router.post('/create/:communityId', createPost)
 
 
 module.exports = router

@@ -1,0 +1,11 @@
+:root{
+    --community-background: #dae0e6;
+}
+#community{
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    align-items: baseline;
+    background-color: var(--community-background);
+}
+
