@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const NavbarStyled  = styled.header`
 
 @import url('https://fonts.googleapis.com/css2?family=Epilogue&family=Inter:wght@300;400&family=Karla&display=swap');
+
 *,
 *::after,
 *::before {
@@ -29,10 +30,10 @@ body{
 }
 
 .navbar {
-  position: fixed;
-  width: 100%;
+  width: 100vw;
   background: #F7F7F7;
   color: #344963;
+
 }
 
 .navbar-container {
@@ -46,6 +47,7 @@ body{
   order: 2;
   display: flex;
 }
+
 .logo {
   font-size: 32px;
   letter-spacing: 1px;
@@ -57,11 +59,12 @@ body{
 .menu-items li,
 button {
   list-style: none;
-  margin-left: 1.5rem;
+  margin-left: 1rem;
   font-size: 1.1rem;
   display: flex;
   align-items: center;
 }
+
 
 .navbar a {
   color: #344963;
@@ -70,15 +73,38 @@ button {
   transition: color 0.3s ease-in-out;
 }
 
-button {
+.pomo-btn {
   padding: 12px 24px;
-  margin-right: 20px;
+  margin-right: 10px;
   background-color: #FFDE3B;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   color:#344963;    
   transition: all ease-in-out 0s;
+}
+
+.pomo-btn:hover{
+    box-shadow: 0 2px 5px 0 #FFDD00;
+
+}
+
+.todo-btn{
+    padding: 12px 24px;
+  margin-right: 3px;
+  background-color: #d6ed9e;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all ease-in-out 0s;  
+}
+.todo-btn:hover{
+    box-shadow: 0 2px 5px 0 #d6ed9e;
+}
+
+.todo-btn > a{
+    color:black;    
+
 }
 
 
@@ -146,7 +172,7 @@ button {
 
   .navbar .menu-items {
     padding-top: 90px;
-    background: #F7F7F7;
+    background: #b9e8f0;
     height: 100vh;
     max-width: 300px;
     transform: translate(-150%);
@@ -164,8 +190,8 @@ button {
     padding:5px;
   }
 
-  button {
-    width: fit-content;
+  .pomo-btn, .todo-btn {
+    width: 170px;
     margin-left: 1rem;
     margin-bottom: 1rem;
   }

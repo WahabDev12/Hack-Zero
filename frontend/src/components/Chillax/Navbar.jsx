@@ -19,14 +19,13 @@ const Navbar = () => {
                 </div>
                 <ul className="menu-items">
 
+                    <button className="pomo-btn"><a href="#">Pomodoro ⏰</a></button>
                     <li><a href="#"></a></li>
-                    <button><a href="#">Pomodoro ⏰</a></button>
-                    <li><a href="#">My Todo 📘</a></li>
-                    <li><a href="#">Dashboard</a></li>
+                    <button className="todo-btn"><a href="#">TodoList 🚀</a></button>
 
                 </ul>
                 <h1 className="logo">
-                    Chillax😌
+                    Chillax🧘‍♂️
                 </h1>
             </div>
 
