@@ -1,7 +1,13 @@
-import React from 'react'
+import {React, useContext} from 'react'
+import { formContext } from './Contexts/PostFormContext'
 import RecentPosts from './RecentPosts'
 import './Styles/Sidebar.css'
+
 const Sidebar = () => {
+  const {postFormIsOpen, setPostFormOpen} = useContext(formContext)
+  const openModal = () => {
+      setPostFormOpen(true)
+  }
   return (
     <>
         <div className='sidebar-container'>
@@ -14,7 +20,7 @@ const Sidebar = () => {
                     <span>90</span>
                     <span className='member-stats'>members </span>
                 </div>
-                <button className='post-btn'>Create Post</button>
+                <button onClick={openModal} className='post-btn'>Create Post</button>
                 
             </div>
             <div className='recent-posts'>

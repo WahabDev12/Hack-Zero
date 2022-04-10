@@ -5,7 +5,8 @@
     display: flex;
     width: 100vw;
     justify-content: center;
-    align-items: baseline;
+    align-items: flex-start;
     background-color: var(--community-background);
+    padding-top: 2rem;
 }
 

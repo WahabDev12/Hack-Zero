@@ -22,7 +22,7 @@ const Post = () => {
                     </h3>
                     <div>
                         <p className='post-sub'>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat odit nemo recusandae nisi iure magni maxime? Quis doloribus molestias cum iure sequi nulla vel aspernatur expedita dignissimos voluptatibus sed optio at, quas, autem minus recusandae aliquam? Laudantium necessitatibus eos tempora perspiciatis esse, tenetur eligendi et optio culpa suscipit reprehenderit quis qui eum sunt cum fugiat, fugit aliquid laborum nostrum dolore delectus consequatur! Sequi harum, facilis perferendis, quibusdam iusto quod laborum eius recusandae molestias qui similique? Sed incidunt cupiditate voluptates quasi!
+                          quibusdam iusto quod laborum eius recusandae molestias qui similique? Sed incidunt cupiditate voluptates quasi!
                         </p>
                     </div>
                     
