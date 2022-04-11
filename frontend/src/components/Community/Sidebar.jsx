@@ -24,7 +24,7 @@ const Sidebar = () => {
                 
             </div>
             <div className='recent-posts'>
-                <h5 className='block-header'>Recent Posts</h5>
+                <h5 className='block-header'>Recent Posts!</h5>
                 <RecentPosts/>
                 <RecentPosts/>
                 <RecentPosts/>
