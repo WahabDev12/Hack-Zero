@@ -18,7 +18,8 @@
     "mongoose": "^6.2.10",
     "passport": "^0.5.2",
     "passport-google-oauth2": "^0.2.0",
-    "passport-outlook": "^3.0.0"
+    "passport-outlook": "^3.0.0",
+    "react-modal": "^3.14.4"
   },
   "devDependencies": {
     "concurrently": "^7.1.0",
