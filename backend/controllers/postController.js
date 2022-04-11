@@ -10,9 +10,16 @@ const getPosts = (req, res) => {
 const createPost = (req, res) => {
     const newPost = new Post({
         title: req.body.title,
-        subContent: req.body.subContent
+        subContent: req.body.subContent,
+        communityId: req.params.communityId
     })
     newPost.save()
 }
 
-module.exports = {getPosts, createPost}
+const getPostById = (req, res) => {
+    Post.findOne({_id: req.params.id})
+        .then((post) => {
+            res.status(200).json(post)
+        })
+}
+module.exports = {getPosts, createPost, getPostById}
