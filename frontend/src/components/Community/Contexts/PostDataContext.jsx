@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 
 
 export const PostDataContext = createContext();
-const BACKEND_URI = "http://localhost:3000/"
+const BACKEND_URI = "http://localhost:5000/"
 const PostDataProvider = ({children}) => {
   const {id} = useParams()
   const [posts, setPosts] = useState(null)

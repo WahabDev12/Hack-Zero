@@ -8,7 +8,7 @@ import './Styles/CommentSection.css'
 
 
 const Comments = () => {
-  const BACKEND_URI = "http://localhost:3000/"
+  const BACKEND_URI = "http://localhost:5000/"
   const {id} = useParams()
   const [post, setPost] = useState(null)
   const [content, setContent] = useState('')

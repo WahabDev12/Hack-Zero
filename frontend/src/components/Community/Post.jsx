@@ -11,7 +11,7 @@ const Post = ({data}) => {
 
 
   const [vote, setVote]  = useState()
-  const BACKEND_URI = "http://localhost:3000/"
+  const BACKEND_URI = "http://localhost:5000/"
   const {id} = useParams()
   const [comments, setComments] = useState(null)
   const navigate = useNavigate()

@@ -16,7 +16,7 @@ const PostForm = () => {
       setPostFormOpen(false)
   }
   const {id} = useParams()
-  const BACKEND_URI = "http://localhost:3000/"
+  const BACKEND_URI = "http://localhost:5000/"
   const submitPost = (e) => {
       e.preventDefault()
       const post = {

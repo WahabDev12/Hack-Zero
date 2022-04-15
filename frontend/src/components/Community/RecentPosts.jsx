@@ -3,7 +3,7 @@ import axios from 'axios'
 
 
 const RecentPosts = ({post}) => {
-    const BACKEND_URI = "http://localhost:3000/"
+    const BACKEND_URI = "http://localhost:5000/"
     const [comments, setComments] = useState(null)
     const getcomments = () => {
         axios.get(BACKEND_URI + `comment/${post._id}`)

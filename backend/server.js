@@ -15,7 +15,7 @@ const todoRoutes = require("./routes/TodoRoutes")
 require('./config/db.js')
 
 app.use(cors({
-  origin:'http://localhost:3001',
+  origin:'http://localhost:3000',
   credentials: true
 }))
 
