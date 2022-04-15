@@ -2,6 +2,8 @@ import {React, useState, useEffect} from 'react'
 import './Styles/Post.css'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 
 
@@ -46,9 +48,9 @@ const Post = ({data}) => {
             </div>
             <div className='post-content'>
                 <div className='post-meta-data'>
-                    <span className='community-tag'></span>
-                    <span className='post-author'>Posted by </span>
-                    <span className='timestamp'></span>
+                    {<span className='community-tag'></span>}
+                    {<span className='post-author'>Posted by </span>}
+                    {<span className='timestamp'></span>}
                 </div>
                 <div className='post-text'>
                     <h3 className='post-title'>
