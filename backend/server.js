@@ -2,12 +2,17 @@ const express = require('express')
 const app = express()
 const passport = require('passport')
 const session = require('express-session')
+const cors = require('cors')
 const MongoStore = require('connect-mongo')
 const communityRoutes = require('./routes/communityRoutes')
 const postRoutes = require('./routes/postRoutes')
 const authRoutes = require('./routes/authRoutes')
 require('dotenv').config()
 require('./config/db.js')
+app.use(cors({
+  origin:'http://localhost:3001',
+  credentials: true
+}))
 app.use(session({
 
     secret: 'secret',

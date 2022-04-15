@@ -13,7 +13,18 @@ var PostSchema = new Schema({
     communityId:{
         type: Schema.Types.ObjectId,
         required: true
-    }
+    },
+    upvotes:{
+        type: Number,
+        default: 0
+    },
+    comments:[
+        {
+        
+            type: Schema.Types.ObjectId,
+        
+         }
+    ]
     
 })
 

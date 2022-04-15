@@ -8,10 +8,10 @@ const App = () => {
     <div className="App">
         <Router>  
               <Routes>
-                  <Route path="/community" element={<CommunityPage/>}/>
                   <Route exact path="/" element={<Home />} />
+                  <Route path="/community/:id" element={<CommunityPage/>}/>
                   <Route path="/chillax" element={<Main />} />
-                  <Route path="/flashcards" element={<FlashCard />} />
+                  {/* <Route path="/flashcards" element={<FlashCard />} /> */}
                   
               </Routes>
 

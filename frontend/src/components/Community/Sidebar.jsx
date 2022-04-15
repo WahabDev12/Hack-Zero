@@ -1,9 +1,11 @@
 import {React, useContext} from 'react'
 import { formContext } from './Contexts/PostFormContext'
 import RecentPosts from './RecentPosts'
+import { PostDataContext } from './Contexts/PostDataContext'
 import './Styles/Sidebar.css'
 
 const Sidebar = () => {
+  const {posts} = useContext(PostDataContext)
   const {postFormIsOpen, setPostFormOpen} = useContext(formContext)
   const openModal = () => {
       setPostFormOpen(true)
@@ -23,15 +25,13 @@ const Sidebar = () => {
                 <button onClick={openModal} className='post-btn'>Create a new Post</button>
                 
             </div>
-            <div className='recent-posts'>
+           { posts && <div className='recent-posts'>
                 <h5 className='block-header'>Recent Posts</h5>
-                <RecentPosts/>
-                <RecentPosts/>
-                <RecentPosts/>
-                <RecentPosts/>
-                <RecentPosts/>
-                <RecentPosts/>
-            </div>
+                {posts.map((post) => {
+                    return <RecentPosts post = {post}/>
+                })}
+
+            </div>}
             <div className='footer'>
                 <div className='footer-links'>
                     <div className='col-1'>

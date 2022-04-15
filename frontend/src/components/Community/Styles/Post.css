@@ -9,9 +9,14 @@
     --upvotes-section: #f8f9fa;
     --elements-base: white;
 }
+i{
+    cursor: pointer;
+}
 
 .post-container{
+    position: relative;
     max-width: 640px;
+    min-width: 640px;
     min-height: 170px;
     box-shadow:var(--post-shadow);
     display: flex;
@@ -38,7 +43,8 @@
 .post-meta-data, 
 .post-text, 
 .engagement-tray
-{
+{   
+   
     min-width: 100%;
 }
 .post-title, .post-sub{
@@ -58,7 +64,8 @@
 
 }
 .engagement-tray{
-
+    position: absolute;
+    bottom: 7%;
     overflow: hidden;
     display: flex;
     margin: 0 0.4rem;

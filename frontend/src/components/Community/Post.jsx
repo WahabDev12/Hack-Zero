@@ -1,12 +1,26 @@
-import React from 'react'
+import {React, useState} from 'react'
 import './Styles/Post.css'
+import axios from 'axios'
+import { useParams } from 'react-router-dom'
 
-const Post = () => {
+
+const Post = ({data}) => {
+
+  const [vote, setVote]  = useState()
+  const BACKEND_URI = "http://localhost:3000/"
+  const {id} = useParams()
+  const submitUpvote = () => {
+      console.log("clicked")
+      axios.patch(BACKEND_URI + `post/vote`,{
+         postID: data._id
+      })
+            
+  }
   return (
     <>
         <div className='post-container'>
             <div className='upvotes-section'>
-                <i class="fa-solid fa-square-caret-up"></i>
+                <i onClick={submitUpvote} class="fa-solid fa-square-caret-up"></i>
                 <span className='upvotes-value'>90</span>
                 <i class="fa-solid fa-square-caret-down"></i>
             </div>
@@ -18,11 +32,11 @@ const Post = () => {
                 </div>
                 <div className='post-text'>
                     <h3 className='post-title'>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate corrupti quibusdam dignissimos, doloremque id nam.
+                        {data.title}
                     </h3>
                     <div>
                         <p className='post-sub'>
-                          quibusdam iusto quod laborum eius recusandae molestias qui similique? Sed incidunt cupiditate voluptates quasi!
+                          {data.subContent}
                         </p>
                     </div>
                     
