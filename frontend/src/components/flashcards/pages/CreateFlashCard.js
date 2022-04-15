@@ -1,17 +1,23 @@
 import '../styles/create.css'
+import '../styles/create.css'
 
 const CreateFlash = () => {
     return (
         <div className="create-set-container">
-            <div className="create-set-wrapper">
-                Hello how is life treating in statistcs coursr, are you over stressed
-            </div>
-            <div className="create-set-wrapper">
-                Hello how is life treating in statistcs coursr, are you over stressed
-            </div>
-            <div className="create-set-wrapper">
-                Hello how is life treating in statistcs coursr, are you over stressed
-            </div>
+             <div className="group">      
+                    <input type="text" className="input-fieldA" placeholder="what is ..."/>
+                    <span className="highlight"></span>
+                    <span className="bar"></span>
+                    <label className ="input-label">Topic / Question head</label>
+             </div>
+             <div className="group">      
+                    <input type="text" className="input-fieldA" placeholder="what is ..."/>
+                    <span className="highlight"></span>
+                    <span className="bar"></span>
+                    <label className ="input-label">Content / Details</label>
+             </div>
+             
+            
         </div>
     )
 }
