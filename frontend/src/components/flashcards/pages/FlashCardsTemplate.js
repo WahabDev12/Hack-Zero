@@ -1,11 +1,17 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 import FlashCards from './FlashCards'
+import useFetchData from '../components/useFetch'
 import '../styles/FlashCards.css'
 
-export default function FlashCardsTemplate({ cards }) {
+export default function FlashCardsTemplate() {
   
   const [title, setTitle] = useState(" ")
-  const [data, setData] = useState(cards)
+  const [data, setData] = useState([])
+
+  const cards = useFetchData("http://localhost:3000/flashcards")
+
+ 
 
   const filter = (e) => {
     const searchTitle = e.target.value
@@ -25,6 +31,8 @@ export default function FlashCardsTemplate({ cards }) {
   }
 
   console.log(data)
+
+
 
   return (
     <><h3>PUBLIC FLASHCARDS</h3>

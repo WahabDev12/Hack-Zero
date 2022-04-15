@@ -21,11 +21,11 @@ const App = () => {
     <div className="App">
         <Router>  
               <Routes>
-                  <Route path="/community" element={<CommunityPage/>}/>
+                  <Route path="/community" element={<CommunityPage />}/>
                   <Route exact path="/" element={<Home />} />
                   <Route path="/chillax" element={<Main />} />
 
-                  <Route path = "/flashcards/:data" element = {<FlashCardsTemplate cards = {pseudoCards}/>} /> 
+                  <Route path = "/flashcards" element = {<FlashCardsTemplate cards = {pseudoCards} />} /> 
                   <Route path = "/studysets" element = {<StudySets studysets = {pseudoCards2} /> } />
                   <Route path='/createcard' element = {<CreateFlashCardPage />} />
                   

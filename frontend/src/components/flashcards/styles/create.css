@@ -204,11 +204,12 @@
     align-items:center;
     background-color:rgb(242, 247, 245);
     border: none;
-    width:20rem;
+    width:30rem;
     height: 2.5rem;
     font-size:1.5rem;
     padding: 0.5rem;
     margin-right: 2rem;
+    margin-top: 3rem;
     margin-bottom: 2rem;
     border-radius:0.5rem;
     -webkit-border-radius:0.5rem;

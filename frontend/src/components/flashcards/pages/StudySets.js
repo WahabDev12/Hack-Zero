@@ -27,18 +27,8 @@ function StudySets({ studysets }) {
                             {openSet &&
                             <div className="studyset-details">
 
-
-                                {/* {window.postMessage("data", "http://localhost:3000/flashcards", studycard.cards )} */}
-                               {window.open(`http://localhost:3000/flashcards/${studycard.id}`)}
-                                
-                                {/* <Routes>
+                               {window.open(`http://localhost:3001/flashcards`)}
                                
-                                    <Route path="/flashcardssets" element ={ <FlashCardsTemp cards = {studycard.cards} />}></Route>
-                                
-                                </Routes> */}
-                                
-
-
                             </div>
                             }
                         </>

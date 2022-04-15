@@ -17,8 +17,6 @@ function StudySetsCards({studycards}) {
         
         <div className="studysets-card" >
             <div className="studyset-card-front">{studycards.title}</div>
-            
-            
         </div>
         
     )
