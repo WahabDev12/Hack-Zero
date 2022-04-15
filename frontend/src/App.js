@@ -10,11 +10,10 @@ const App = () => {
                   
                   <Route exact path="/" element={<Home />} />
                   <Route path="/chillax" element={<Main />} />
-                  <Route path="/flashcards" element={<FlashCard />} />
                   
               </Routes>
 
-            </Router>
+            </Router> 
     </div>
   );
 }

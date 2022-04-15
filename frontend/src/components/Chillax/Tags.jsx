@@ -4,7 +4,15 @@ const Tags = () => {
     return (  
         <>
         <Flex>
-            
+            <div>
+                <Flex>
+                    <button>Productivity</button>
+                    <button>Focus</button>
+                    <button>Relax</button>
+
+                </Flex>
+            </div>
+            <button>Random</button>
         </Flex>
         
         </>

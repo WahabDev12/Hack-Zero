@@ -15,9 +15,6 @@ const Main = () => {
     return ( 
         <>
             <Navbar />
-
-            <br></br>
-            <br></br>
             <Grid>
                 <Rain />
                 <Thunder />
