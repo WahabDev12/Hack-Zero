@@ -10,8 +10,7 @@ const getTodos = (req, res) => {
 
 const createTodo = (req, res) => {
     const newTodo = new Todo({
-        title: req.body.title,
-       
+        title: req.body.title
     })
     newTodo.save();
     res.status(200).send({newTodo})

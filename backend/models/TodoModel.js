@@ -13,6 +13,6 @@ var todoSchema = new Schema({
 
 })
   
-var Todo = mongoose.model("Users", todoSchema)
+var Todo = mongoose.model("Todo", todoSchema)
 
 module.exports = Todo;
