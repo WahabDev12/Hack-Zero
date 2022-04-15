@@ -6,8 +6,10 @@ const MongoStore = require('connect-mongo')
 const communityRoutes = require('./routes/communityRoutes')
 const postRoutes = require('./routes/postRoutes')
 const authRoutes = require('./routes/authRoutes')
+const TodoRoutes = require("./routes/TodoRoutes")
 require('dotenv').config()
 require('./config/db.js')
+
 app.use(session({
 
     secret: 'secret',
@@ -24,6 +26,8 @@ app.use(express.urlencoded({extended: true}))
 app.use('/auth', authRoutes)
 app.use('/community',communityRoutes)
 app.use('/post',postRoutes)
+app.use("/todo",TodoRoutes)
+
 app.get('/', (req, res) => {
 
   res.send(`Hack Zero! <p> ${req.isAuthenticated()}</p>` )

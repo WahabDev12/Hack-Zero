@@ -19,6 +19,7 @@
     "passport": "^0.5.2",
     "passport-google-oauth2": "^0.2.0",
     "passport-outlook": "^3.0.0",
+    "react-flexible-sliding-menu": "^0.1.9",
     "react-modal": "^3.14.4"
   },
   "devDependencies": {
