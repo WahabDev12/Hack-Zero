@@ -15,18 +15,28 @@ const Main = () => {
     return ( 
         <>
             <Navbar />
-            <Grid>
-                <Rain />
+            <div className="mood-tags">
+
+                <button>Productivity</button>
+                <button>Focus</button>
+                <button>Relax</button>
+
+            </div>
+
+            <div className="moods-div">
                 <Thunder />
+                <Rain />
                 <Chirp />
                 <Fan />
-                <Clock />
                 <Train />
+                <Clock />
                 <Ocean />
                 <Stadium />
                 <Leaves />
 
-            </Grid>
+
+                </div>
+                <br />
                 <Footer />
         
         </>
