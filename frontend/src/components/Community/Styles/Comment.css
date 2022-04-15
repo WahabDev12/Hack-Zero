@@ -1,0 +1,24 @@
+.comment-container img{
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    margin-right: 0.5rem;
+   
+}
+.comment-container{
+    margin-bottom: 2rem;
+}
+
+
+.comment-meta{
+    display: flex;
+    align-items: center;
+}
+
+.comment-meta span{
+    margin-left: 0.5rem;
+}
+
+.comment-text{
+    margin-left: 3.1rem;
+}

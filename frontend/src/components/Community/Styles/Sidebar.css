@@ -123,3 +123,8 @@ button{
     display: flex;
     flex-direction: column;
 }
+
+.recent {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.679);
+}

@@ -9,10 +9,16 @@
     --upvotes-section: #f8f9fa;
     --elements-base: white;
 }
+i{
+    cursor: pointer;
+}
 
 .post-container{
+    cursor: pointer;
+    position: relative;
     max-width: 640px;
-    min-height: 170px;
+    min-width: 640px;
+    min-height: 130px;
     box-shadow:var(--post-shadow);
     display: flex;
     margin-bottom: 1.5rem;
@@ -38,7 +44,8 @@
 .post-meta-data, 
 .post-text, 
 .engagement-tray
-{
+{   
+   
     min-width: 100%;
 }
 .post-title, .post-sub{
@@ -48,7 +55,7 @@
 .post-sub{
     position: relative;
 }
-.post-sub::before{
+/* .post-sub::before{
     content: '';
     bottom: 0;
     width: 100%;
@@ -56,9 +63,10 @@
     position: absolute;
     background: linear-gradient(to bottom, transparent 25%, rgb(255, 254, 254));
 
-}
+} */
 .engagement-tray{
-
+    
+    bottom: 7%;
     overflow: hidden;
     display: flex;
     margin: 0 0.4rem;

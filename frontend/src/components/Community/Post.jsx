@@ -1,42 +1,82 @@
-import React from 'react'
+import {React, useState, useEffect} from 'react'
 import './Styles/Post.css'
+import axios from 'axios'
+import { useNavigate, useParams } from 'react-router-dom'
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
-const Post = () => {
+
+
+const Post = ({data}) => {
+
+
+  const [vote, setVote]  = useState()
+  const BACKEND_URI = "http://localhost:3000/"
+  const {id} = useParams()
+  const [comments, setComments] = useState(null)
+  const navigate = useNavigate()
+  const submitUpvote = () => {
+      axios.patch(BACKEND_URI + `post/vote`,{
+         postID: data._id
+      })
+            
+  }
+  const getcomments = () => {
+    axios.get(BACKEND_URI + `comment/${data._id}`)
+          .then((res) => {
+              setComments(res.data)
+          })
+
+
+      
+}
+  const openComments = () => {
+
+        navigate(`/comment/${data._id}`)
+
+  }
+
+  useEffect(() => {
+    if(data){
+     getcomments()
+    }
+   
+  }, [comments]);
   return (
     <>
         <div className='post-container'>
-            <div className='upvotes-section'>
-                <i class="fa-solid fa-square-caret-up"></i>
-                <span className='upvotes-value'>90</span>
+            {data && <div className='upvotes-section'>
+                <i onClick={submitUpvote} class="fa-solid fa-square-caret-up"></i>
+                <span className='upvotes-value'>{data.upvotes}</span>
                 <i class="fa-solid fa-square-caret-down"></i>
-            </div>
+            </div>}
             <div className='post-content'>
-                <div className='post-meta-data'>
-                    <span className='community-tag'></span>
-                    <span className='post-author'>Posted by </span>
-                    <span className='timestamp'></span>
-                </div>
+                {data ? <div className='post-meta-data'>
+                    {<span className='community-tag'></span>}
+                    {<span className='post-author'>Posted by </span>}
+                    {<span className='timestamp'></span>}
+                </div>: <Skeleton/>}
                 <div className='post-text'>
-                    <h3 className='post-title'>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate corrupti quibusdam dignissimos, doloremque id nam.
-                    </h3>
+                   { data ? <h3 className='post-title'>
+                        {data.title}
+                    </h3> : <Skeleton/>}
                     <div>
-                        <p className='post-sub'>
-                          quibusdam iusto quod laborum eius recusandae molestias qui similique? Sed incidunt cupiditate voluptates quasi!
-                        </p>
+                        {data ? <p className='post-sub'>
+                          {data.subContent}
+                        </p> : <Skeleton/>}
                     </div>
                     
                 </div>
-                <div className='engagement-tray'>
-                    <div className='comment-icon'>
+               { comments ? <div className='engagement-tray'>
+                    <div onClick = {openComments} className='comment-icon'>
                          <i class="fa-regular fa-message"></i> 
-                         <span> <span>9</span> Comments</span>
+                         <span> <span>{comments.length}</span> Comments</span>
                     </div>
                     <div className='share-icon'>
                          <i class="fa-solid fa-share"></i>
                          <span>Share</span>
                     </div>
-                </div>
+                </div> : <Skeleton width={"50%"}/>}
                
 
             </div>

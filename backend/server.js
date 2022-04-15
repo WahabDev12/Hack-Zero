@@ -8,15 +8,16 @@ const MongoStore = require('connect-mongo')
 const communityRoutes = require('./routes/communityRoutes')
 const postRoutes = require('./routes/postRoutes')
 const authRoutes = require('./routes/authRoutes')
-
-const flashcardsRoute = require('./routes/flashcardsRoute')
-require('dotenv').config()
-const todoRoutes = require("./routes/TodoRoutes")
-
+const commentRoutes = require('./routes/commentRoutes')
 const flashcardsRoute = require('./routes/flashcardsRoute')
 require('dotenv').config()
 const todoRoutes = require("./routes/TodoRoutes")
 require('./config/db.js')
+
+app.use(cors({
+  origin:'http://localhost:3001',
+  credentials: true
+}))
 
 app.use(session({
 
@@ -27,10 +28,6 @@ app.use(session({
     cookie: {maxAge: 180 * 60 * 1000}
   
 }))
-app.use(cors({
-  origin:'http://localhost:3001',
-  credentials: true
-}))
 
 app.use(passport.initialize())
 app.use(passport.session())
@@ -39,16 +36,9 @@ app.use(express.urlencoded({extended: true}))
 app.use('/auth', authRoutes)
 app.use('/community',communityRoutes)
 app.use('/post',postRoutes)
-
+app.use('/comment', commentRoutes)
 app.use('/createcard', flashcardsRoute)
 app.use('/flashcards', flashcardsRoute)
-
-app.use("/todo",todoRoutes)
-
-
-app.use('/createcard', flashcardsRoute)
-app.use('/flashcards', flashcardsRoute)
-
 app.use("/todo",todoRoutes)
 
 app.get('/', (req, res) => {
@@ -56,8 +46,8 @@ app.get('/', (req, res) => {
   res.send(`Hack Zero! <p> ${req.isAuthenticated()}</p>` )
 })
 
-PORT = 5000
+
 
 app.listen(process.env.PORT, () => {
-  console.log(`App listening on port ${PORT}`)
+  console.log(`App listening on port ${process.env.PORT}`)
 })
