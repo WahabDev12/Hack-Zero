@@ -19,7 +19,6 @@ const PostForm = () => {
   const BACKEND_URI = "http://localhost:3000/"
   const submitPost = (e) => {
       e.preventDefault()
-      console.log("clicked")
       const post = {
           title,
           subContent
@@ -27,6 +26,7 @@ const PostForm = () => {
       axios.post(BACKEND_URI+ `post/create/${id}`, {
           post
       })
+      .then(setPostFormOpen(false))
   }
   return (
     <>

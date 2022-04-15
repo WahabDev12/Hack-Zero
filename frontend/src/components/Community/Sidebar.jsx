@@ -27,7 +27,7 @@ const Sidebar = () => {
             </div>
            { posts && <div className='recent-posts'>
                 <h5 className='block-header'>Recent Posts</h5>
-                {posts.map((post) => {
+                {posts.slice(1,7).map((post) => {
                     return <RecentPosts post = {post}/>
                 })}
 

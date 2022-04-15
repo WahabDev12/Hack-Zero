@@ -57,6 +57,7 @@ body{
 
 .post-section .post-container{
     box-shadow: none;
+    cursor:default;
 }
 
 .post-section .post-sub::before{
@@ -65,3 +66,4 @@ body{
 .post-section .upvotes-section{
     background: white;
 }
+

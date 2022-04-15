@@ -12,14 +12,14 @@ const PostDataProvider = ({children}) => {
   const getPosts = () => {
         axios.get(BACKEND_URI+`post/${id}`)
             .then( res => {
-                console.log(res.data)
+
                 setPosts(res.data)
             })
 
   }
   useEffect(() => {
       getPosts()
-  }, []);
+  }, [posts]);
   return (
     <PostDataContext.Provider value = {{posts}}>
             {children}

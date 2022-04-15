@@ -14,10 +14,11 @@ i{
 }
 
 .post-container{
+    cursor: pointer;
     position: relative;
     max-width: 640px;
     min-width: 640px;
-    min-height: 170px;
+    min-height: 130px;
     box-shadow:var(--post-shadow);
     display: flex;
     margin-bottom: 1.5rem;
@@ -54,7 +55,7 @@ i{
 .post-sub{
     position: relative;
 }
-.post-sub::before{
+/* .post-sub::before{
     content: '';
     bottom: 0;
     width: 100%;
@@ -62,9 +63,9 @@ i{
     position: absolute;
     background: linear-gradient(to bottom, transparent 25%, rgb(255, 254, 254));
 
-}
+} */
 .engagement-tray{
-    position: absolute;
+    
     bottom: 7%;
     overflow: hidden;
     display: flex;

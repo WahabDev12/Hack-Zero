@@ -1,4 +1,4 @@
-import {React, useState} from 'react'
+import {React, useState, useEffect} from 'react'
 import './Styles/Post.css'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
@@ -10,22 +10,35 @@ const Post = ({data}) => {
   const [vote, setVote]  = useState()
   const BACKEND_URI = "http://localhost:3000/"
   const {id} = useParams()
+  const [comments, setComments] = useState(null)
   const navigate = useNavigate()
   const submitUpvote = () => {
-      console.log("clicked")
       axios.patch(BACKEND_URI + `post/vote`,{
          postID: data._id
       })
             
   }
+  const getcomments = () => {
+    axios.get(BACKEND_URI + `comment/${data._id}`)
+          .then((res) => {
+              setComments(res.data)
+          })
+
+
+      
+}
   const openComments = () => {
         console.log("clicked")
         navigate(`/comment/${data._id}`)
 
   }
+
+  useEffect(() => {
+      getcomments()
+  }, [comments]);
   return (
     <>
-        <div onClick = {openComments} className='post-container'>
+        <div className='post-container'>
             <div className='upvotes-section'>
                 <i onClick={submitUpvote} class="fa-solid fa-square-caret-up"></i>
                 <span className='upvotes-value'>{data.upvotes}</span>
@@ -48,16 +61,16 @@ const Post = ({data}) => {
                     </div>
                     
                 </div>
-                <div className='engagement-tray'>
-                    <div onclick = {openComments} className='comment-icon'>
+               { comments &&  <div className='engagement-tray'>
+                    <div onClick = {openComments} className='comment-icon'>
                          <i class="fa-regular fa-message"></i> 
-                         <span> <span>9</span> Comments</span>
+                         <span> <span>{comments.length}</span> Comments</span>
                     </div>
                     <div className='share-icon'>
                          <i class="fa-solid fa-share"></i>
                          <span>Share</span>
                     </div>
-                </div>
+                </div>}
                
 
             </div>

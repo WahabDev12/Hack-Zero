@@ -1,7 +1,7 @@
 import React from 'react'
 import './Styles/Comment.css'
 
-const Comment = () => {
+const Comment = ({data}) => {
   return (
     <>
         <div className='comment-container'>
@@ -11,7 +11,7 @@ const Comment = () => {
             </div>
         
             <div className='comment-text'>
-                <p>Lorem ipsum dolor sit amet.</p>
+                <p>{data.content}</p>
             </div>
         </div>
 

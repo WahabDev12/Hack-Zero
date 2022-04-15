@@ -11,6 +11,7 @@ const Comments = () => {
   const {id} = useParams()
   const [post, setPost] = useState(null)
   const [content, setContent] = useState('')
+  const [comments, setComments] = useState(null)
   const getPost = () => {
     axios.get(BACKEND_URI + `post/get/${id}`)
         .then((res) => {
@@ -23,9 +24,19 @@ const Comments = () => {
         content
      }) 
   }
+  const getcomments = () => {
+      axios.get(BACKEND_URI + `comment/${id}`)
+            .then((res) => {
+                setComments(res.data)
+            })
+
+
+        
+  }
   useEffect(() => {
     getPost()
-  }, []);
+    getcomments()
+  }, [comments]);
   return (
     
     < section id='comment-section'>
@@ -40,10 +51,9 @@ const Comments = () => {
         </div>
         <hr className='seperator'></hr>
         <div className='comments-container'>
-            <Comment/>
-            <Comment/>
-            <Comment/>
-            <Comment/>
+            {comments && comments.map((comment) => {
+                return <Comment key = {comment._id} data = {comment}/>
+            })}
         </div>
         
 
