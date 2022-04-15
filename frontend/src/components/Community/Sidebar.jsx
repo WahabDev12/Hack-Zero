@@ -28,7 +28,7 @@ const Sidebar = () => {
             </div>
            {<div className='recent-posts'>
                 <h5 className='block-header'>Recent Posts</h5>
-                {posts ? posts.slice(1,7).map((post) => {
+                {posts ? posts.slice(1,6).map((post) => {
                     return <RecentPosts post = {post}/>
                 }): [1,2,3,4].map((e) => {return <Skeleton style={{width:"85%", marginLeft:"1.4rem", height:"2.5rem", marginBottom:"1rem"}}/>})}
 

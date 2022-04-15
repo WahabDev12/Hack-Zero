@@ -40,7 +40,8 @@ const PostForm = () => {
                 left: 0,
                 right: 0,
                 bottom: 0,
-                backgroundColor: 'rgba(255, 255, 255, 0.65)'
+                backgroundColor: 'rgba(255, 255, 255, 0.65)',
+                zIndex: 10000
               },
               content: {
                 margin: "auto",

@@ -14,10 +14,6 @@ import PostDataProvider from "./components/Community/Contexts/PostDataContext";
 
 
 
-
-
-
-
 const App = () => {
 
 
@@ -27,24 +23,18 @@ const App = () => {
      
         <Router>  
               <Routes>
-              
+                 
                   <Route exact path="/" element={<Home />} />
                   <Route path="/community/:id" element={<CommunityPage/>}/>
                   <Route path="/chillax" element={<Main />} />
-
-                  {/* <Route path="/flashcards" element={<FlashCard />} /> */}
-                  <Route path = "/flashcards/:data" element = {<FlashCardsTemplate cards = {pseudoCards}/>} /> 
-                  <Route path = "/studysets" element = {<StudySets studysets = {pseudoCards2} /> } />
-                  <Route path='/createcard' element = {<CreateFlashCardPage />} />
-                  <Route path='/comment/:id' element = {<CommentPage/>}/>
-              
-              
-                  
+                  <Route path="comment/:id" element={<CommentPage/>} />
+                  <Route path = "/flashcards/:id" element = {<FlashCardsTemplate />} />
+                  <Route exact path="/createcard" element={<CreateFlashCardPage />} />
+                  <Route path="/chillax" element={<Main />} />
 
               </Routes>
 
             </Router>
-      
       
     </div>
   );

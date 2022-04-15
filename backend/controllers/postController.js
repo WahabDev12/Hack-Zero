@@ -21,7 +21,7 @@ const getPostById = (req, res) => {
     Post.findOne({_id: req.params.id})
         .then((post) => {
             res.status(200).json(post)
-        })
+    })
 }
 
 const submitUpvote = (req, res) => {

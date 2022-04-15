@@ -10,29 +10,27 @@ import Ocean from "./Ocean";
 import Stadium from "./Stadium";
 import Leaves from "./Leaves";
 import Footer from "./Footer";
+import Pomodoro from "./Pomodoro";
 
 const Main = () => {
     return ( 
         <>
-            <Navbar />
-
-
-            <br></br>
-            <br></br>
-            <Grid>
-                <Rain />
+           
+            <Pomodoro />
+            <div className="moods-div">
                 <Thunder />
+                <Rain />
                 <Chirp />
                 <Fan />
-                <Clock />
                 <Train />
+                <Clock />
                 <Ocean />
                 <Stadium />
                 <Leaves />
-
-            </Grid>
+            </div>
+                <br />
                 <Footer />
-        
+
         </>
      );
 }
