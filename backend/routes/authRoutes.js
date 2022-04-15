@@ -1,7 +1,7 @@
+require('dotenv').config()
 const {Router} = require('express')
 const router = Router()
 const passport = require('passport')
-require('dotenv').config()
 require('../services/googleAuth')
 require('../services/outlookAuth')
 
@@ -34,7 +34,7 @@ router.get('/outlook/callback',
 
 router.get('/failure',(req,res) =>{
 
-    res.send('Unfortunately login failed... please try again')
+    res.send(' login failed... please try again')
 
 })
 
