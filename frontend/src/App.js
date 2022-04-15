@@ -17,19 +17,19 @@ const App = () => {
     <div className="App">
         <Router>  
               <Routes>
-<<<<<<< HEAD
+
                   <Route path="/community" element={<CommunityPage />}/>
                   <Route exact path="/" element={<Home />} />
                   <Route path="/chillax" element={<Main />} />
                   <Route path = "/flashcards/:id" element = {<FlashCardsTemplate />} /> 
-=======
+
                   
                   <Route path="/community" element={<CommunityPage/>}/>
                   <Route exact path="/" element={<Home />} />
                     <Route path="/chillax" element={<Main />} />
 
                   <Route path = "/flashcards/:data" element = {<FlashCardsTemplate cards = {pseudoCards}/>} /> 
->>>>>>> 65d40053f49455a825f502f44ad1178445a44a95
+
                   <Route path = "/studysets" element = {<StudySets studysets = {pseudoCards2} /> } />
                   <Route path='/createcard' element = {<CreateFlashCardPage />} />
               </Routes>

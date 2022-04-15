@@ -8,12 +8,14 @@ const MongoStore = require('connect-mongo')
 const communityRoutes = require('./routes/communityRoutes')
 const postRoutes = require('./routes/postRoutes')
 const authRoutes = require('./routes/authRoutes')
-<<<<<<< HEAD
+
 const flashcardsRoute = require('./routes/flashcardsRoute')
 require('dotenv').config()
-=======
 const todoRoutes = require("./routes/TodoRoutes")
->>>>>>> 65d40053f49455a825f502f44ad1178445a44a95
+
+const flashcardsRoute = require('./routes/flashcardsRoute')
+require('dotenv').config()
+const todoRoutes = require("./routes/TodoRoutes")
 require('./config/db.js')
 
 app.use(session({
@@ -37,13 +39,18 @@ app.use(express.urlencoded({extended: true}))
 app.use('/auth', authRoutes)
 app.use('/community',communityRoutes)
 app.use('/post',postRoutes)
-<<<<<<< HEAD
+
 app.use('/createcard', flashcardsRoute)
 app.use('/flashcards', flashcardsRoute)
-=======
+
 app.use("/todo",todoRoutes)
 
->>>>>>> 65d40053f49455a825f502f44ad1178445a44a95
+
+app.use('/createcard', flashcardsRoute)
+app.use('/flashcards', flashcardsRoute)
+
+app.use("/todo",todoRoutes)
+
 app.get('/', (req, res) => {
 
   res.send(`Hack Zero! <p> ${req.isAuthenticated()}</p>` )
