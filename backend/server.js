@@ -8,6 +8,11 @@ const MongoStore = require('connect-mongo')
 const communityRoutes = require('./routes/communityRoutes')
 const postRoutes = require('./routes/postRoutes')
 const authRoutes = require('./routes/authRoutes')
+
+const flashcardsRoute = require('./routes/flashcardsRoute')
+require('dotenv').config()
+const todoRoutes = require("./routes/TodoRoutes")
+
 const flashcardsRoute = require('./routes/flashcardsRoute')
 require('dotenv').config()
 const todoRoutes = require("./routes/TodoRoutes")
@@ -34,6 +39,13 @@ app.use(express.urlencoded({extended: true}))
 app.use('/auth', authRoutes)
 app.use('/community',communityRoutes)
 app.use('/post',postRoutes)
+
+app.use('/createcard', flashcardsRoute)
+app.use('/flashcards', flashcardsRoute)
+
+app.use("/todo",todoRoutes)
+
+
 app.use('/createcard', flashcardsRoute)
 app.use('/flashcards', flashcardsRoute)
 
