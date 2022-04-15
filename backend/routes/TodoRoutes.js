@@ -1,6 +1,6 @@
 const {Router} = require('express')
 const router = Router()
-const {createTodo, getTodoS, deleteTodo} = require('../controllers/TodoController')
+const {createTodo, getTodos, deleteTodo} = require('../controllers/TodoController')
 
 router.get('/all', getTodos)
 router.post('/create', createTodo)
