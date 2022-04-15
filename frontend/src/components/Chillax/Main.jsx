@@ -38,7 +38,7 @@ const Main = () => {
                 </div>
                 <br />
                 <Footer />
-        
+
         </>
      );
 }
