@@ -28,7 +28,7 @@ const Main = () => {
 
             </Grid>
                 <Footer />
-        
+
         </>
      );
 }

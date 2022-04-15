@@ -10,6 +10,10 @@ var PostSchema = new Schema({
         type: String,
         required: true
     },
+    communityId:{
+        type: Schema.Types.ObjectId,
+        required: true
+    }
     
 })
 
