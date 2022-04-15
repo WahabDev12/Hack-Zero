@@ -15,7 +15,20 @@ const Main = () => {
     return ( 
         <>
             <Navbar />
-            
+            <Grid>
+                <Rain />
+                <Thunder />
+                <Chirp />
+                <Fan />
+                <Clock />
+                <Train />
+                <Ocean />
+                <Stadium />
+                <Leaves />
+
+            </Grid>
+                <Footer />
+
         </>
      );
 }

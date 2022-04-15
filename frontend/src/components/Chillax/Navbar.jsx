@@ -22,7 +22,11 @@ const Navbar = () => {
                     <button className="pomo-btn"><a href="#">Pomodoro ⏰</a></button>
                     <li><a href="#"></a></li>
                     <button className="todo-btn"><a href="#">TodoList 🚀</a></button>
-
+                    <nav className="nav-side nav-open">
+                        Side Content
+                        <a href="#" className="nav-toggle"></a>
+                    </nav>
+                  
                 </ul>
                 <h1 className="logo">
                     Chillax🧘‍♂️
