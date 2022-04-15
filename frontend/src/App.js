@@ -9,10 +9,6 @@ import StudySets from "./components/flashcards/pages/StudySets";
 import pseudoCards2 from './components/flashcards/components/pseusdoCards2'
 
 
-
-
-
-
 const App = () => {
 
 
@@ -21,10 +17,17 @@ const App = () => {
     <div className="App">
         <Router>  
               <Routes>
+
                   <Route path="/community" element={<CommunityPage />}/>
                   <Route exact path="/" element={<Home />} />
                   <Route path="/chillax" element={<Main />} />
                   <Route path = "/flashcards/:id" element = {<FlashCardsTemplate />} /> 
+                  
+                  <Route path="/community" element={<CommunityPage/>}/>
+                  <Route exact path="/" element={<Home />} />
+                    <Route path="/chillax" element={<Main />} />
+
+                  <Route path = "/flashcards/:data" element = {<FlashCardsTemplate cards = {pseudoCards}/>} /> 
                   <Route path = "/studysets" element = {<StudySets studysets = {pseudoCards2} /> } />
                   <Route path='/createcard' element = {<CreateFlashCardPage />} />
               </Routes>
