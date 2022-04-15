@@ -18,6 +18,7 @@ const createPost = (req, res) => {
 }
 
 const getPostById = (req, res) => {
+    console.log("hit route")
     Post.findOne({_id: req.params.id})
         .then((post) => {
             res.status(200).json(post)

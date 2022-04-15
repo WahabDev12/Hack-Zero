@@ -11,7 +11,7 @@ const Feed = () => {
     <>
         <main className='feed-container' >
            {posts && posts.map((post) => {
-                return <Post data= {post} />
+                return <Post key={post._id} data= {post} />
            })}
         </main>
         

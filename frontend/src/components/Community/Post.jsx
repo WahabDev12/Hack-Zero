@@ -1,7 +1,8 @@
 import {React, useState} from 'react'
 import './Styles/Post.css'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+
 
 
 const Post = ({data}) => {
@@ -9,6 +10,7 @@ const Post = ({data}) => {
   const [vote, setVote]  = useState()
   const BACKEND_URI = "http://localhost:3000/"
   const {id} = useParams()
+  const navigate = useNavigate()
   const submitUpvote = () => {
       console.log("clicked")
       axios.patch(BACKEND_URI + `post/vote`,{
@@ -16,12 +18,17 @@ const Post = ({data}) => {
       })
             
   }
+  const openComments = () => {
+        console.log("clicked")
+        navigate(`/comment/${data._id}`)
+
+  }
   return (
     <>
-        <div className='post-container'>
+        <div onClick = {openComments} className='post-container'>
             <div className='upvotes-section'>
                 <i onClick={submitUpvote} class="fa-solid fa-square-caret-up"></i>
-                <span className='upvotes-value'>90</span>
+                <span className='upvotes-value'>{data.upvotes}</span>
                 <i class="fa-solid fa-square-caret-down"></i>
             </div>
             <div className='post-content'>
@@ -42,7 +49,7 @@ const Post = ({data}) => {
                     
                 </div>
                 <div className='engagement-tray'>
-                    <div className='comment-icon'>
+                    <div onclick = {openComments} className='comment-icon'>
                          <i class="fa-regular fa-message"></i> 
                          <span> <span>9</span> Comments</span>
                     </div>

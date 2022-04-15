@@ -7,6 +7,7 @@ const MongoStore = require('connect-mongo')
 const communityRoutes = require('./routes/communityRoutes')
 const postRoutes = require('./routes/postRoutes')
 const authRoutes = require('./routes/authRoutes')
+const commentRoutes = require('./routes/commentRoutes')
 require('dotenv').config()
 require('./config/db.js')
 app.use(cors({
@@ -29,6 +30,7 @@ app.use(express.urlencoded({extended: true}))
 app.use('/auth', authRoutes)
 app.use('/community',communityRoutes)
 app.use('/post',postRoutes)
+app.use('/comment', commentRoutes)
 app.get('/', (req, res) => {
 
   res.send(`Hack Zero! <p> ${req.isAuthenticated()}</p>` )
