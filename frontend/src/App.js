@@ -17,6 +17,11 @@ const App = () => {
     <div className="App">
         <Router>  
               <Routes>
+
+                  <Route path="/community" element={<CommunityPage />}/>
+                  <Route exact path="/" element={<Home />} />
+                  <Route path="/chillax" element={<Main />} />
+                  <Route path = "/flashcards/:id" element = {<FlashCardsTemplate />} /> 
                   
                   <Route path="/community" element={<CommunityPage/>}/>
                   <Route exact path="/" element={<Home />} />
@@ -25,8 +30,6 @@ const App = () => {
                   <Route path = "/flashcards/:data" element = {<FlashCardsTemplate cards = {pseudoCards}/>} /> 
                   <Route path = "/studysets" element = {<StudySets studysets = {pseudoCards2} /> } />
                   <Route path='/createcard' element = {<CreateFlashCardPage />} />
-                  
-
               </Routes>
 
             </Router> 
