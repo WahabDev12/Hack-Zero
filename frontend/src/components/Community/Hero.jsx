@@ -6,8 +6,8 @@ const Hero = () => {
    <>
     <div className='community-header-container'>
         <img src='/science-logo.jpg'/>
-        <h1 className='community-logo'>random community 1</h1>
-        <button className='join-btn'>join</button>
+        <h1 className='community-logo'>random community one</h1>
+        <button className='join-btn'>Join</button>
     </div>
    </>
   )

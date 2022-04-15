@@ -14,13 +14,13 @@ const Sidebar = () => {
             <div className='action-block'>
                 <h5 className='block-header'>About Community</h5>
                 <div className='description'>
-                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, nesciunt ex voluptatibus magni unde impedit.</p>
+                     <p>Lorem ipsum dolor  amet consectetur adipisicing elit. Quaerat, nesciunt ex voluptatibus magni unde impedit.</p>
                 </div>
                 <div className='member-stats-container'>
                     <span>90</span>
                     <span className='member-stats'>members </span>
                 </div>
-                <button onClick={openModal} className='post-btn'>Create Post</button>
+                <button onClick={openModal} className='post-btn'>Create a new Post</button>
                 
             </div>
             <div className='recent-posts'>

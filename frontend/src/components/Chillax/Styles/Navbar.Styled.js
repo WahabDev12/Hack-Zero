@@ -227,4 +227,31 @@ button {
 }
 
 
+  /* RIGHT TOGGLE*/
+
+  .nav-side{
+    position: fixed;
+    right:0;
+    top:0;
+    width:100%;
+    height:100%;
+    max-width: 250px;
+    background-color: #E7E5DC;
+    padding:20px;
+    color:#344963;
+    margin-left:-250px;
+  }
+
+  .nav-side.nav-open{
+    margin-left: 0;
+    box-shadow: 1px 1px 3px rgba(0,0,0,.1);
+  }
+
+  .todo-btn:before{
+    content:"";
+
+  }
+
+
+
 `
