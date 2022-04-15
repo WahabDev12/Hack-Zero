@@ -10,9 +10,9 @@ const PostDataProvider = ({children}) => {
   const {id} = useParams()
   const [posts, setPosts] = useState(null)
   const getPosts = () => {
+        console.log("id is " + id)
         axios.get(BACKEND_URI+`post/${id}`)
             .then( res => {
-
                 setPosts(res.data)
             })
 

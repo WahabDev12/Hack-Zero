@@ -1,7 +1,7 @@
 const Comment = require('../models/commentModel')
 
 const getComments = (req, res) => {
-    Comment.find({postID: req.params.postid})
+    Comment.find({postID: req.params.id})
         .then((comments) => {
             res.status(200).json(comments)
         })

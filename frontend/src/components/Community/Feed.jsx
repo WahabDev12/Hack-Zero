@@ -11,9 +11,9 @@ const Feed = () => {
   return (
     <>
         <main className='feed-container' >
-           {posts.map((post) => {
-                return <Post key={post._id} data= {post} /> || <Skeleton count={30}/>
-           })}
+           {posts ? posts.map((post) => {
+                return <Post key={post._id} data= {post} /> 
+           }) : [1,2,3,4].map((e) => { return <Post key={e} data = {null} />}) }
         </main>
         
     </>

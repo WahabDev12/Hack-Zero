@@ -3,6 +3,7 @@ import { formContext } from './Contexts/PostFormContext'
 import RecentPosts from './RecentPosts'
 import { PostDataContext } from './Contexts/PostDataContext'
 import './Styles/Sidebar.css'
+import Skeleton from 'react-loading-skeleton'
 
 const Sidebar = () => {
   const {posts} = useContext(PostDataContext)
@@ -25,11 +26,11 @@ const Sidebar = () => {
                 <button onClick={openModal} className='post-btn'>Create a new Post</button>
                 
             </div>
-           { posts && <div className='recent-posts'>
+           {<div className='recent-posts'>
                 <h5 className='block-header'>Recent Posts</h5>
-                {posts.slice(1,7).map((post) => {
+                {posts ? posts.slice(1,7).map((post) => {
                     return <RecentPosts post = {post}/>
-                })}
+                }): [1,2,3,4].map((e) => {return <Skeleton style={{width:"85%", marginLeft:"1.4rem", height:"2.5rem", marginBottom:"1rem"}}/>})}
 
             </div>}
             <div className='footer'>

@@ -8,6 +8,9 @@ import CreateFlashCardPage from "./components/flashcards/pages/CreateFlashCardPa
 import StudySets from "./components/flashcards/pages/StudySets";
 import pseudoCards2 from './components/flashcards/components/pseusdoCards2'
 import Comments from "./components/Community/CommentsSection";
+import CommentPage from "./components/Community/CommentPage";
+import PostFormProvider from "./components/Community/Contexts/PostFormContext";
+import PostDataProvider from "./components/Community/Contexts/PostDataContext";
 
 
 
@@ -21,8 +24,10 @@ const App = () => {
 
   return (
     <div className="App">
+     
         <Router>  
               <Routes>
+              
                   <Route exact path="/" element={<Home />} />
                   <Route path="/community/:id" element={<CommunityPage/>}/>
                   <Route path="/chillax" element={<Main />} />
@@ -31,13 +36,16 @@ const App = () => {
                   <Route path = "/flashcards/:data" element = {<FlashCardsTemplate cards = {pseudoCards}/>} /> 
                   <Route path = "/studysets" element = {<StudySets studysets = {pseudoCards2} /> } />
                   <Route path='/createcard' element = {<CreateFlashCardPage />} />
-                  <Route path='/comment/:id' element = {<Comments/>}/>
-
+                  <Route path='/comment/:id' element = {<CommentPage/>}/>
+              
+              
                   
 
               </Routes>
 
             </Router>
+      
+      
     </div>
   );
 }

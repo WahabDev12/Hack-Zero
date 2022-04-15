@@ -1,11 +1,26 @@
-import {React, useContext} from 'react'
+import {React, useContext, useState, useEffect} from 'react'
+import axios from 'axios'
 
 
 const RecentPosts = ({post}) => {
+    const BACKEND_URI = "http://localhost:3000/"
+    const [comments, setComments] = useState(null)
+    const getcomments = () => {
+        axios.get(BACKEND_URI + `comment/${post._id}`)
+              .then((res) => {
+                  setComments(res.data)
+              })
+    
+    
+          
+    }
+    useEffect(() => {
+        getcomments()
+    }, []);
   
  
   return (
-    <a href='#'>
+    <a className='recent' href= {`/comment/${post._id}`}>
        
         <div className='recent-post'>
             
@@ -19,7 +34,7 @@ const RecentPosts = ({post}) => {
                         {post.title}
                     </h4>
                     <div className='post-stats'>
-                        <span>7 comments</span> <span>2d</span>
+                        <span>{comments ? comments.length : 0} comments</span> <span>2d</span>
                     </div>
                 </div>
                 <hr></hr>

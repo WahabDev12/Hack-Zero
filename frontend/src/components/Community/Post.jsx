@@ -9,6 +9,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 
 const Post = ({data}) => {
 
+
   const [vote, setVote]  = useState()
   const BACKEND_URI = "http://localhost:3000/"
   const {id} = useParams()
@@ -30,40 +31,43 @@ const Post = ({data}) => {
       
 }
   const openComments = () => {
-        console.log("clicked")
+
         navigate(`/comment/${data._id}`)
 
   }
 
   useEffect(() => {
-      getcomments()
+    if(data){
+     getcomments()
+    }
+   
   }, [comments]);
   return (
     <>
         <div className='post-container'>
-            <div className='upvotes-section'>
+            {data && <div className='upvotes-section'>
                 <i onClick={submitUpvote} class="fa-solid fa-square-caret-up"></i>
                 <span className='upvotes-value'>{data.upvotes}</span>
                 <i class="fa-solid fa-square-caret-down"></i>
-            </div>
+            </div>}
             <div className='post-content'>
-                <div className='post-meta-data'>
+                {data ? <div className='post-meta-data'>
                     {<span className='community-tag'></span>}
                     {<span className='post-author'>Posted by </span>}
                     {<span className='timestamp'></span>}
-                </div>
+                </div>: <Skeleton/>}
                 <div className='post-text'>
-                    <h3 className='post-title'>
+                   { data ? <h3 className='post-title'>
                         {data.title}
-                    </h3>
+                    </h3> : <Skeleton/>}
                     <div>
-                        <p className='post-sub'>
+                        {data ? <p className='post-sub'>
                           {data.subContent}
-                        </p>
+                        </p> : <Skeleton/>}
                     </div>
                     
                 </div>
-               { comments &&  <div className='engagement-tray'>
+               { comments ? <div className='engagement-tray'>
                     <div onClick = {openComments} className='comment-icon'>
                          <i class="fa-regular fa-message"></i> 
                          <span> <span>{comments.length}</span> Comments</span>
@@ -72,7 +76,7 @@ const Post = ({data}) => {
                          <i class="fa-solid fa-share"></i>
                          <span>Share</span>
                     </div>
-                </div>}
+                </div> : <Skeleton width={"50%"}/>}
                
 
             </div>

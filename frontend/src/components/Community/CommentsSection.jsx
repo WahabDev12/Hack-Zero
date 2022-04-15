@@ -1,5 +1,6 @@
 import axios from 'axios'
 import {React, useEffect, useState} from 'react'
+import Skeleton from 'react-loading-skeleton'
 import { useParams } from 'react-router-dom'
 import Comment from './Comment'
 import Post from './Post'
@@ -41,7 +42,7 @@ const Comments = () => {
     
     < section id='comment-section'>
         <div className='post-section'>
-            {post && <Post data = {post} />}
+            {post ? <Post data = {post} /> : <Skeleton height={150}  />}
         </div>
        
         <div className='comment-form'>
@@ -50,11 +51,11 @@ const Comments = () => {
             <button onClick={submitComment}>comments</button>
         </div>
         <hr className='seperator'></hr>
-        <div className='comments-container'>
-            {comments && comments.map((comment) => {
+       { comments ? <div className='comments-container'>
+            {comments.map((comment) => {
                 return <Comment key = {comment._id} data = {comment}/>
             })}
-        </div>
+        </div> : <div class="lds-dual-ring"></div>}
         
 
     </ section>
