@@ -12,11 +12,6 @@ var CommunitySchema = new Schema({
             type: Schema.Types.ObjectId
         }
     ],
-    posts:[
-        {
-            type: Schema.Types.ObjectId
-        }
-    ]
     
 
 })
