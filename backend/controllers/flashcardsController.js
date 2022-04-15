@@ -12,6 +12,13 @@ const createFlashCard = (req, res) => {
 
 }
 
+const getFlashCardsById = (req, res) => {
+    FlashCard.findOne({_id: req.params.id})
+        .then((sets) => {
+            res.status(200).json(sets)
+        })
+}
+
 
 const getFlashCards = (req, res) => {
     console.log("get flashcards is active")
@@ -22,4 +29,5 @@ const getFlashCards = (req, res) => {
 }
 
 
-module.exports = { createFlashCard, getFlashCards}
+
+module.exports = { createFlashCard, getFlashCards, getFlashCardsById}

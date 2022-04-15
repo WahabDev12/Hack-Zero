@@ -24,12 +24,9 @@ const App = () => {
                   <Route path="/community" element={<CommunityPage />}/>
                   <Route exact path="/" element={<Home />} />
                   <Route path="/chillax" element={<Main />} />
-
-                  <Route path = "/flashcards" element = {<FlashCardsTemplate cards = {pseudoCards} />} /> 
+                  <Route path = "/flashcards/:id" element = {<FlashCardsTemplate />} /> 
                   <Route path = "/studysets" element = {<StudySets studysets = {pseudoCards2} /> } />
                   <Route path='/createcard' element = {<CreateFlashCardPage />} />
-                  
-
               </Routes>
 
             </Router> 

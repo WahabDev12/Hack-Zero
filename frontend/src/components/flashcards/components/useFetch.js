@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 
 const useFetchData = (url)  => {
-    const [data, setData] = useState([]);
+    const [Data, setData] = useState({});
     useEffect(() => {
         fetch(url, {
             method: 'GET',
@@ -10,12 +10,13 @@ const useFetchData = (url)  => {
             },
             
         }).then(res => res.json())
-        .then((msg) => setData(msg))
+        .then((data) => setData(data))
 
 
     }, [url])
+    console.log(`${Data} from use fetch`)
 
-    return [data];
+    return [Data];
 }
 
 export default useFetchData;

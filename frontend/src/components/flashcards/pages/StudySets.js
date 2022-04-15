@@ -1,36 +1,43 @@
 import React, { useState } from 'react'
-import {BrowserRouter, Routes, Route} from "react-router-dom"
+import axios from 'axios'
 import StudySetsCards from './StudySetsCards'
-import FlashCardsTemp from '../pages/FlashCardsTemplate'
 import FilterBar from '../components/FilterBar'
-import Data from '../components/pseudoCards'
 import '../styles/studysetscards.css'
+import useFetchData from "../components/useFetch"
 
 
-function StudySets({ studysets }) {
+function StudySets() {
     const [openSet, setOpenSet] = useState(false)
+    const [cards, setCards] = useState([])
 
-
+        
+    
+        axios.get('http://localhost:3000/flashcards', {
+          withCredentials: true
+        })
+          .then(response => {
+            if(response){
+                console.log(response.data)
+              setCards(response.data)
+            }
+            else{console.log("an error occurred")}
+          
+          })
+    
 
     return (
 
 
         <>
-            <FilterBar info = { studysets }/>
+            <FilterBar info = { cards }/>
 
             <div className="studysets-card-container">
-                {studysets.map(studycard => {
+                {cards.map(studyset => {
                     return <>
-                            <div className="studyset-front" onClick={() =>{setOpenSet(!openSet)}}>
-                                <StudySetsCards studycards={studycard} key={studycard.id} />
+                            <div key={studyset._id} className="studyset-front" onClick={() => {window.open("http://localhost:3001/flashcards/" + studyset._id, '_self')}}>
+                                <StudySetsCards studycards={studyset}  />
                             </div>
-                            {openSet &&
-                            <div className="studyset-details">
 
-                               {window.open(`http://localhost:3001/flashcards`)}
-                               
-                            </div>
-                            }
                         </>
                     
                 })}

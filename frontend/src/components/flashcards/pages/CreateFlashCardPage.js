@@ -40,9 +40,9 @@ const CreateFlashCardPage = () => {
             visibility,
             cardFields,
 
-    }
+        }
 
-        console.log(studysets)
+        // console.log(studysets)
 
         axios({
             url: 'http://localhost:3000/createcard',
@@ -51,6 +51,8 @@ const CreateFlashCardPage = () => {
             data:studysets,
         }).then((res) => {console.log("successful")})
         .catch((err) => {console.log(err)})
+
+        window.open("http://localhost:3001/studysets")
 
     }
  

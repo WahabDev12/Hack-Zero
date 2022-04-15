@@ -4,17 +4,19 @@ const Schema = mongoose.Schema
 const FlashCardSchema = new Schema({
     title:{
         type:"string",
-        
+        required: true,
     },
+    
     description: {
         type:"string",
+        
         
     },
 
     visibility: {
         type:"string",
-        
-
+        default:"Private",
+        required: true,
     },
 
     cards: {

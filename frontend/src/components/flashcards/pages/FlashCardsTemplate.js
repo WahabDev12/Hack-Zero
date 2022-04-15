@@ -1,45 +1,41 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import { useParams } from 'react-router'
 import FlashCards from './FlashCards'
-import useFetchData from '../components/useFetch'
 import '../styles/FlashCards.css'
 
 export default function FlashCardsTemplate() {
-  
+
+  const {id} = useParams()
+  console.log(id)
   const [title, setTitle] = useState(" ")
-  const [data, setData] = useState([])
+  const [Data, setData] = useState([])
 
-  const cards = useFetchData("http://localhost:3000/flashcards")
-
- 
-
-  const filter = (e) => {
-    const searchTitle = e.target.value
-
-    if(searchTitle !== " "){
-
-      const results = cards.filter((card) => {
-        return card.title.toLowerCase().includes(searchTitle.toLowerCase());
-      });
-      setData(results)
-
-    }else{
-      setData(cards);
+  const fetchData = (id) => {
+    
+      axios.get('http://localhost:3000/flashcards/' + id, {
+        withCredentials: true
+      })
+        .then(response => {
+          if(response){
+            console.log(response)
+            setData(response.data.cards)
+            console.log(Data)
+          }
+        }).catch(error => {console.log(error)});
     }
 
-    setTitle(searchTitle);
-  }
-
-  console.log(data)
-
-
-
+  useEffect(() => {
+  
+    fetchData(id)
+    
+  }, [id]);
   return (
     <><h3>PUBLIC FLASHCARDS</h3>
 
       <div className="top-bar">
         <div className="search-box">
-          <input className = "search-input" type="search" name = {title} onChange={filter} placeholder="e.g future|" />
+          <input className = "search-input" type="search"  placeholder="e.g future|" />
           
         </div>
         <div className="search-box">
@@ -59,9 +55,14 @@ export default function FlashCardsTemplate() {
 
       <div className="flashcards-wrapper">
 
-      {data.map(card => {
-        return <FlashCards Fcard={card} key={card.id}  />
+      {Data.map(card => {
+        return <>
+                <div key={card._id}>
+                  <FlashCards Fcard={card} />
+                </div>
+              </>
       })}
+ 
       </div>
       
     </>
