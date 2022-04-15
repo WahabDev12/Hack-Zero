@@ -12,7 +12,7 @@ function StudySets() {
 
         
     
-        axios.get('http://localhost:3000/flashcards', {
+        axios.get('http://localhost:5000/flashcards', {
           withCredentials: true
         })
           .then(response => {
@@ -34,7 +34,7 @@ function StudySets() {
             <div className="studysets-card-container">
                 {cards.map(studyset => {
                     return <>
-                            <div key={studyset._id} className="studyset-front" onClick={() => {window.open("http://localhost:3001/flashcards/" + studyset._id, '_self')}}>
+                            <div key={studyset._id} className="studyset-front" onClick={() => {window.open("http://localhost:3000/flashcards/" + studyset._id, '_self')}}>
                                 <StudySetsCards studycards={studyset}  />
                             </div>
 

@@ -10,16 +10,18 @@ export default function FlashCardsTemplate() {
   console.log(id)
   const [title, setTitle] = useState(" ")
   const [Data, setData] = useState([])
+  const [mainset, setMainset] = useState([])
 
   const fetchData = (id) => {
     
-      axios.get('http://localhost:3000/flashcards/' + id, {
+      axios.get('http://localhost:5000/flashcards/' + id, {
         withCredentials: true
       })
         .then(response => {
           if(response){
             console.log(response)
             setData(response.data.cards)
+            setMainset(response.data)
             console.log(Data)
           }
         }).catch(error => {console.log(error)});
@@ -31,7 +33,13 @@ export default function FlashCardsTemplate() {
     
   }, [id]);
   return (
-    <><h3>PUBLIC FLASHCARDS</h3>
+    <>
+    
+
+    
+
+    
+      <h3>{mainset.visibility.toUpperCase()} STUDYSET OF FLASH CARDS</h3>
 
       <div className="top-bar">
         <div className="search-box">

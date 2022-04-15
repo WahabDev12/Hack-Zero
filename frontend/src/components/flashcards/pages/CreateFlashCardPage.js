@@ -45,14 +45,14 @@ const CreateFlashCardPage = () => {
         // console.log(studysets)
 
         axios({
-            url: 'http://localhost:3000/createcard',
+            url: 'http://localhost:5000/createcard',
             method: 'POST',
             withCredentials: true,
             data:studysets,
         }).then((res) => {console.log("successful")})
         .catch((err) => {console.log(err)})
 
-        window.open("http://localhost:3001/studysets")
+        window.open("http://localhost:3000/studysets", '_self')
 
     }
  
@@ -95,7 +95,7 @@ const CreateFlashCardPage = () => {
                 {/* {Array.from({ length: count }, (_, k) =>  */}
                 <form onSubmit={handleSubmit}>
                 {cardFields.map((field, index) =>
-                <div key={index} classNames = "create-cards">
+                <div key={index} className = "create-cards">
                    {index +1}        
                    <div className="create-set-container">
                        
