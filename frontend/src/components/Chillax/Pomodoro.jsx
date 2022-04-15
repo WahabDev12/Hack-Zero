@@ -1,4 +1,4 @@
-import {useState,useEffect} from "react";
+import {useState,useContext} from "react";
 import { Link } from "react-router-dom";
 import alarmSound from "./audio/iphone_timer_sound.mp3";
 import "./Styles/main.css"
@@ -12,6 +12,20 @@ const Pomodoro = () => {
     const [isRunning, setIsRunning] = useState(false);
     const [onBreak,setOnBreak] = useState(true);
     const [breakAudio,setBreakAudio] = useState(new Audio(alarmSound));
+    const [isOpened, setIsOpened] = useState(false);
+
+
+   //Toggle menu
+    const toggleOn = (e) => {
+        e.preventDefault();
+        setIsOpened(true);
+    }
+
+    const toggleOff = (e) => {
+        e.preventDefault();
+        setIsOpened(false); 
+    }
+
     
     //Format time function
     const formatTime = (time) =>{
@@ -167,8 +181,8 @@ const Pomodoro = () => {
                   </span>
               </a>
               </li>
-              <li> <a href="#" className="todo-btn">
-                    <span>TodoList🚀</span>
+              <li> <a href="" onClick={toggleOn} className="todo-btn">
+                    <span >TodoList🚀</span>
                 </a>
               </li>
           <li>
@@ -176,6 +190,23 @@ const Pomodoro = () => {
               
           </li>
           { timerOn ? <Link onClick={pauseTimer} to="">Pause</Link> : ""}
+
+          <li>
+              
+               <nav className={isOpened ? "nav-side-open" : "nav-side-close"}>
+                        <a href="#" onClick={toggleOff} className="close-btn">
+                                ✖️                     
+                         </a>
+                        <div className="todo-section">
+                            <h3>Create new tasks 📝</h3>
+                            <div className="input-fields">
+                                <input className="todo-input" type="text" placeholder="Add new tasks..." />
+                                <button className="add-btn">Add Task</button>
+                            </div>
+                        </div>
+                </nav> 
+                
+          </li>
      
       </ul>
 	</header> 
