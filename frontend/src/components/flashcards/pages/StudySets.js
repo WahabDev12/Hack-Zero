@@ -3,33 +3,65 @@ import axios from 'axios'
 import StudySetsCards from './StudySetsCards'
 import FilterBar from '../components/FilterBar'
 import '../styles/studysetscards.css'
-import useFetchData from "../components/useFetch"
+import Paginate from  "react-paginate"
 
 
 function StudySets() {
-    const [openSet, setOpenSet] = useState(false)
-    const [cards, setCards] = useState([])
+    const [info, setInfo] = useState([])
+    const [cards, setCards] = useState(info)
+    const [title, setTitle] = useState(" ")
 
-        
-    
-        axios.get('http://localhost:5000/flashcards', {
-          withCredentials: true
-        })
-          .then(response => {
-            if(response){
-                console.log(response.data)
-              setCards(response.data)
-            }
-            else{console.log("an error occurred")}
-          
-          })
-    
+    axios.get('http://localhost:5000/flashcards', {
+      withCredentials: true
+    })
+      .then(response => {
+        if(response){
+          setInfo(response.data)
+        }
+        else{console.log("an error occurred")}
+      
+      })
 
+
+    const filter = (e) => {
+      const searchTitle = e.target.value
+      setTitle(searchTitle);
+  
+    
+      if(searchTitle !== " "){
+  
+        const results = info.filter((card) => {
+          return card.title.toLowerCase().includes(searchTitle.toLowerCase());
+        });
+        setCards(results)
+  
+      }
+      else{
+        setCards(info)
+      }
+      
+    }
+
+    
     return (
 
 
         <>
-            <FilterBar info = { cards }/>
+          <div className="top-bar">
+            <div><h3>PUBLIC</h3></div>
+            <div className="search-box">
+                <input className="search-input" type="search" name={title} onChange={filter} placeholder="..search" />
+
+            </div>
+            <div className="search-box">
+                <select className="select-input" type="select">
+                    <option className="opt">ALL CARDS</option>
+                    <option className="opt">PUBLIC CARDS</option>
+                    <option className="opt">PRIVATE CARDS</option>
+                    
+                </select>
+            </div>
+          </div>
 
             <div className="studysets-card-container">
                 {cards.map(studyset => {

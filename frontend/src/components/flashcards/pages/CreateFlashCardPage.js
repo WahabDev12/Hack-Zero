@@ -92,7 +92,6 @@ const CreateFlashCardPage = () => {
 
                 </div>
 
-                {/* {Array.from({ length: count }, (_, k) =>  */}
                 <form onSubmit={handleSubmit}>
                 {cardFields.map((field, index) =>
                 <div key={index} className = "create-cards">
@@ -119,10 +118,6 @@ const CreateFlashCardPage = () => {
                         <div>
                             <button className="btn" onClick={() =>{increment();}}>Add Fields</button>
                         </div>
-                        {/* <div> 
-                            <button className="btn" onClick={() =>{decrement();}}>Delete Fields</button>
-                        </div> */}
-
                 </div>
                 <div className="control-btns">
                     <button className="create-btn" onClick={handleSubmit}>Create Cards</button>
