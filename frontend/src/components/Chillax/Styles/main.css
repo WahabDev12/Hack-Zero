@@ -17,7 +17,7 @@ body {
     line-height: 1.6;
     margin: 0;
     min-height: 100vh;
-    background-color: #E7E5DC;
+    background-color: #e6e4df;
 }
 
 ul {
@@ -582,8 +582,6 @@ b{
 
 }
 
-
-
   /* RIGHT TOGGLE*/
 
   .nav-side-open{
@@ -599,6 +597,7 @@ b{
     margin-left:-250px;
     box-shadow: 1px 1px 3px rgb(41, 33, 33);
     z-index: 1;
+    overflow-y: scroll;
 
   }
 
@@ -654,4 +653,35 @@ b{
   .add-btn:hover{
     background-color: #58a3ee;
  
+  }
+
+  .todos{
+    display: flex;
+    flex-direction: column;
+    margin-top:12px;
+    padding:7px;
+  }
+
+  .todo{
+      display:flex;
+      align-items: center;
+      margin-top:15px;
+      border:1px solid #718daa;
+      background-color: #eff1fc;
+      height:50px;
+      padding:10px;
+      border-radius:4px;
+  }
+
+  .completed{
+      text-decoration: line-through;
+  }
+  
+  .todo-title{
+      margin-left:10px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent /* make scrollbar transparent */
   }

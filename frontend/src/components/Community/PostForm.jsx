@@ -3,11 +3,30 @@ import Modal from 'react-modal'
 import { formContext } from './Contexts/PostFormContext'
 import './Styles/Modal.css'
 import 'animate.css'
+import { useParams } from 'react-router-dom'
+import axios from 'axios'
+
 
 const PostForm = () => {
+
   const {postFormIsOpen, setPostFormOpen} = useContext(formContext)
+  const [title, setTitle] = useState('')
+  const [subContent, setSubContent] = useState('')
   const handleModal = () => {
       setPostFormOpen(false)
+  }
+  const {id} = useParams()
+  const BACKEND_URI = "http://localhost:3000/"
+  const submitPost = (e) => {
+      e.preventDefault()
+      const post = {
+          title,
+          subContent
+      }
+      axios.post(BACKEND_URI+ `post/create/${id}`, {
+          post
+      })
+      .then(setPostFormOpen(false))
   }
   return (
     <>
@@ -21,7 +40,8 @@ const PostForm = () => {
                 left: 0,
                 right: 0,
                 bottom: 0,
-                backgroundColor: 'rgba(255, 255, 255, 0.65)'
+                backgroundColor: 'rgba(255, 255, 255, 0.65)',
+                zIndex: 10000
               },
               content: {
                 margin: "auto",
@@ -50,9 +70,9 @@ const PostForm = () => {
             <button onClick={handleModal} className='close-btn'>&times;</button>
             <form>
                 <div className='post-form-container'>
-                    <input placeholder='Title' className='postForm-input'/>
-                    <textarea placeholder='Text(Optional)' className='postForm-input-large'></textarea>
-                    <button className='post-btn'>Post</button>
+                    <input value={title} onChange={(e) => {setTitle(e.target.value)}} placeholder='Title' className='postForm-input'/>
+                    <textarea value={subContent} onChange={(e) => {setSubContent(e.target.value)}} placeholder='Text(Optional)' className='postForm-input-large'></textarea>
+                    <button onClick={submitPost} className='post-btn'>Post</button>
                 </div>
                 
             </form>
