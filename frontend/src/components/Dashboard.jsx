@@ -4,7 +4,7 @@ import DashContent from "./DashContent";
 const Dashboard = () => {
     return ( 
         <>
-        <main className="dash-main">
+        <main style={{backgroundColor:"#f1f2f8"}} className="dash-main">
                 <section id="sidebar">
 
                 <section className="title-container">
