@@ -15,12 +15,11 @@ const CommunityPage = () => {
      <PostDataProvider>
      <Hero/>
         <main id='community'>
-            <CommunityForm/>
             <PostForm/>
             <Feed/>
             <Sidebar/>
         </main>
-        </PostDataProvider>
+      </PostDataProvider>
      
     </>
   )

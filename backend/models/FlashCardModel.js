@@ -13,6 +13,7 @@ const FlashCardSchema = new Schema({
         
     },
 
+
     visibility: {
         type:"string",
         default:"Private",
@@ -21,6 +22,10 @@ const FlashCardSchema = new Schema({
 
     cards: {
         type:"array",
+    },
+
+    userId:{    
+         type: Schema.Types.ObjectId
     }
 })
 

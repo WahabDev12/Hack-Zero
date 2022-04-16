@@ -1,9 +1,16 @@
 import Sidebar from "../Sidebar";
 import { HeaderStyled } from "../Chillax/Styles/Header.Styled";
 import { FormStyled } from '../Chillax/Styles/Form.Styled';
-import {useState} from "react"
+import {useState, useContext} from "react"
+import axios from "axios";
+import { userContext } from "../Community/Contexts/userContext";
+
 
 const CreateCard = () => {
+
+
+    const BACKEND_URI = 'http://localhost:5000/'
+    const {user, setUser} = useContext(userContext)
 
     const [inputFields, setInputFields] = useState([
         {question: '', age: ''}
@@ -22,6 +29,7 @@ const CreateCard = () => {
     
         setInputFields([...inputFields, newfield])
     }
+
 
     return ( 
         <>

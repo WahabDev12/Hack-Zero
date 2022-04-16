@@ -1,7 +1,7 @@
 const Todo = require('../models/TodoModel');
 
 const getTodos = async  (req, res) => {
-   await Todo.find()
+   await Todo.find({visibility: 'Public'})
         .then((todos) => {
             res.status(200).json({todos})
     })
