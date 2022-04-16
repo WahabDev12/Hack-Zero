@@ -10,6 +10,7 @@ const postRoutes = require('./routes/postRoutes')
 const authRoutes = require('./routes/authRoutes')
 const commentRoutes = require('./routes/commentRoutes')
 const flashcardsRoute = require('./routes/flashcardsRoute')
+const userRoutes = require('./routes/userRoutes')
 require('dotenv').config()
 const todoRoutes = require("./routes/TodoRoutes")
 require('./config/db.js')
@@ -40,6 +41,7 @@ app.use('/comment', commentRoutes)
 app.use('/createcard', flashcardsRoute)
 app.use('/flashcards', flashcardsRoute)
 app.use("/todo",todoRoutes)
+app.use('/user', userRoutes)
 
 app.get('/', (req, res) => {
 

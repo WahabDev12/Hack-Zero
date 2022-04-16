@@ -5,6 +5,8 @@ import './Styles/Modal.css'
 import 'animate.css'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
+import { userContext } from './Contexts/userContext'
+import {PostDataContext} from './Contexts/PostDataContext'
 
 
 const PostForm = () => {
@@ -12,6 +14,9 @@ const PostForm = () => {
   const {postFormIsOpen, setPostFormOpen} = useContext(formContext)
   const [title, setTitle] = useState('')
   const [subContent, setSubContent] = useState('')
+  const {user, setUser} = useContext(userContext)
+  const {community} = useContext(PostDataContext)
+  
   const handleModal = () => {
       setPostFormOpen(false)
   }
@@ -20,12 +25,18 @@ const PostForm = () => {
   const submitPost = (e) => {
       e.preventDefault()
       const post = {
+          username: user.username,
           title,
           subContent
       }
-      axios.post(BACKEND_URI+ `post/create/${id}`, {
-          post
-      })
+      axios({
+        method: 'post',
+        url: BACKEND_URI + `post/create/${id}`,
+        withCredentials: true,
+        data:{
+            post
+        }
+        })
       .then(setPostFormOpen(false))
   }
   return (
@@ -40,7 +51,7 @@ const PostForm = () => {
                 left: 0,
                 right: 0,
                 bottom: 0,
-                backgroundColor: 'rgba(255, 255, 255, 0.65)',
+                backgroundColor: 'rgba(0, 0, 0, 0.65)',
                 zIndex: 10000
               },
               content: {
@@ -69,11 +80,11 @@ const PostForm = () => {
             <h1 className='postForm-header'>Create a Post</h1>
             <button onClick={handleModal} className='close-btn'>&times;</button>
             <form>
-                <div className='post-form-container'>
+                {community && <div className='post-form-container'>
                     <input value={title} onChange={(e) => {setTitle(e.target.value)}} placeholder='Title' className='postForm-input'/>
                     <textarea value={subContent} onChange={(e) => {setSubContent(e.target.value)}} placeholder='Text(Optional)' className='postForm-input-large'></textarea>
-                    <button onClick={submitPost} className='post-btn'>Post</button>
-                </div>
+                    {user && community.members.includes(user._id) ? <button onClick={submitPost} className='post-btn'>Post</button> : <span>Join our community to make posts!</span>}
+                </div>}
                 
             </form>
         </Modal>

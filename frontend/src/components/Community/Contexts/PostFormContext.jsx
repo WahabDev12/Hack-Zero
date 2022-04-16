@@ -4,9 +4,10 @@ export const formContext = createContext()
 
 const PostFormProvider = ({children}) => {
   const [postFormIsOpen, setPostFormOpen] = useState(false)
+  const [communityFormIsOpen, setCommunityFormOpen] = useState(false)
 
   return (
-    <formContext.Provider value={{postFormIsOpen, setPostFormOpen}}>
+    <formContext.Provider value={{postFormIsOpen, setPostFormOpen, communityFormIsOpen, setCommunityFormOpen}}>
         {children}
     </formContext.Provider>
   )

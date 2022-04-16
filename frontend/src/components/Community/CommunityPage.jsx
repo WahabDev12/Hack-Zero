@@ -1,4 +1,5 @@
 import React from 'react'
+import CommunityForm from './CommunityForm'
 import PostDataProvider from './Contexts/PostDataContext'
 import PostFormProvider from './Contexts/PostFormContext'
 import Feed from './Feed'
@@ -10,16 +11,17 @@ import './Styles/Main.css'
 const CommunityPage = () => {
   return (
     <>
-     <PostFormProvider>
+    
      <PostDataProvider>
-        <Hero/>
+     <Hero/>
         <main id='community'>
+            <CommunityForm/>
             <PostForm/>
             <Feed/>
             <Sidebar/>
         </main>
         </PostDataProvider>
-      </PostFormProvider>
+     
     </>
   )
 }

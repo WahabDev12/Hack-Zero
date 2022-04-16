@@ -12,6 +12,13 @@ var CommunitySchema = new Schema({
             type: Schema.Types.ObjectId
         }
     ],
+    description:{
+        type: String,
+        required: true
+    },
+    color:{
+
+    }
     
 
 })

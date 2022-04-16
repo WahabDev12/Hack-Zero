@@ -13,6 +13,14 @@ var CommentSchema = new Schema({
     content:{
         type: String,
         required: true
+    },
+    date:{
+        type:Date,
+        default:Date.now
+    },
+    imageurl:{
+        type:String,
+        required: true
     }
     
     

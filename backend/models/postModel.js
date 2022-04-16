@@ -2,6 +2,10 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 var PostSchema = new Schema({
+    author:{
+        type: String,
+        required: true
+    },
     title:{
         type: String,
         required: true
@@ -24,7 +28,11 @@ var PostSchema = new Schema({
             type: Schema.Types.ObjectId,
         
          }
-    ]
+    ],
+    date:{
+        type:Date,
+        default:Date.now
+    }
     
 })
 
