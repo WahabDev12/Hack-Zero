@@ -7,9 +7,9 @@ const CommunityHome = () => {
         <HeaderStyled>
             <div className="dash-header">
                 <h3 className="dash-name">Join a community</h3>
-                {/* <h3 className="welcome">
+                <h3 className="welcome">
                     <a className="create" href="/newcard">Create new</a>
-                </h3> */}
+                </h3>
             </div>
         </HeaderStyled>
 
