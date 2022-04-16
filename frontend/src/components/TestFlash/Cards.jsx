@@ -15,7 +15,7 @@ const Cards = () => {
             .then(response => {
               if(response){
                   console.log(response.data)
-                setStudySets(response.data)
+                    setStudySets(response.data)
               }
               else{console.log("an error occurred")}
             

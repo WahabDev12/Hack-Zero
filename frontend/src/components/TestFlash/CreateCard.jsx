@@ -25,9 +25,8 @@ const CreateCard = () => {
         setInputFields(data);
      }
 
-    const addFields = () => {
-        
-        
+    const addFields = (e) => {
+        e.preventDefault()
         let newfield = { question: '', answer: '' }
     
         setInputFields([...inputFields, newfield])
@@ -49,8 +48,9 @@ const CreateCard = () => {
         console.log(studysets)
         
 
-        axios.post({
+        axios({
             url: 'http://localhost:5000/newcard',
+            method: "POST",
             withCredentials: true,
             data:studysets,
         }).then((res) => {console.log("successful")})
@@ -106,12 +106,13 @@ const CreateCard = () => {
 
                 <br></br>
 
-            <form >
+            <form onSubmit={handleSubmit} >
                     {
                        inputFields.map((input, index) => {
+                           console.log(input["question"])
                         return (
-                            <div key = {index}> 
-                            <div  className="q-and-a">
+                            <div > 
+                            <div  key = {index} className="q-and-a">
                              
                             <input 
                               type="text"
@@ -141,13 +142,13 @@ const CreateCard = () => {
                 
                 <br></br>
                 <div className="card-wrapper">
-                    <button onClick={addFields()} className="add-card">Add Card</button>
+                    <button onClick={addFields} className="add-card">Add Card</button>
                 </div>
                 <br></br>
                 <br></br>
                 
             <div className="card-wrapper-two">
-                    <button onClick={handleSubmit}  className="create-set">Create Card</button>
+                    <button onClick={handleSubmit}  className="create-set">Create Set</button>
             </div>
             </form>
 

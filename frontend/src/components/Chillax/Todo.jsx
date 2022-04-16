@@ -1,6 +1,11 @@
 import "./Styles/main.css"
 
 const TodoList = ({id,title}) => {
+<<<<<<< HEAD
+
+
+  
+=======
     const getTodos = () => {
       axios.get("http://127.0.0.1:5000/todo/all")
         .then(res => {
@@ -18,6 +23,7 @@ const TodoList = ({id,title}) => {
 
       getTodos()
     }, [todos]);
+>>>>>>> 859ea613215972a5b657cc48c9882f0b81c9d08c
 
    
 

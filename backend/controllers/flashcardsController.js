@@ -1,6 +1,15 @@
 const FlashCard = require("../models/FlashCardModel")
 
 const createFlashCard = (req, res) => {
+<<<<<<< HEAD
+    console.log("route active")
+    const newFlashCard = new FlashCard({
+        title: req.body.title,
+        visibility: req.body.visibility,
+        cards: req.body.inputFields,
+    })
+    newFlashCard.save().then(() => {console.log("new card added")})
+=======
     if(req.body.visibility == 'Private'){
         const newFlashCard = new FlashCard({
             title: req.body.title,
@@ -21,6 +30,14 @@ const createFlashCard = (req, res) => {
         newFlashCard.save().then(() => {console.log("new card added")})
     }
   
+>>>>>>> 859ea613215972a5b657cc48c9882f0b81c9d08c
+
+}
+
+
+
+const createNew = (re,res) => {
+    
 
 }
 

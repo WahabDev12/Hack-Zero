@@ -1,14 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema
 
-
-CardSchema = new Schema({
-	question: String,
-	answer: String,
-	
-})
-
-
 const FlashCardSchema = new Schema({
     title:{
         type:"string",
