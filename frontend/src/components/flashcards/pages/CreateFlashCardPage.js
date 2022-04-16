@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router'
 import axios from 'axios'
 import '../styles/create.css'
 
 
 const CreateFlashCardPage = () => {
-    const [count, setCount] = useState(0)
+
+    const navigate = useNavigate()
     const [title, setTitle] = useState(" ")
     const [tags, setTags] = useState(" ")
     const [visibility, setVisibility] = useState("public")
@@ -52,7 +54,7 @@ const CreateFlashCardPage = () => {
         }).then((res) => {console.log("successful")})
         .catch((err) => {console.log(err)})
 
-        window.open("http://localhost:3000/studysets", '_self')
+        navigate("/studysets", '_self')
 
     }
  

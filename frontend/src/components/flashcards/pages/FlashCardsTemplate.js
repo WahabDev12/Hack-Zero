@@ -9,7 +9,6 @@ export default function FlashCardsTemplate() {
 
   const {id} = useParams()
   console.log(id)
-  const [title, setTitle] = useState(" ")
   const [Data, setData] = useState([])
   const [mainset, setMainset] = useState([])
   const [pageNumber, setPageNumber] = useState(0)
@@ -59,7 +58,6 @@ export default function FlashCardsTemplate() {
   return (
     <>
     
-    
       <h3>{mainset.visibility} STUDYSET OF FLASH CARDS</h3>
 
       <div className="top-bar">
@@ -72,8 +70,6 @@ export default function FlashCardsTemplate() {
 
       <div className="flashcards-wrapper">
           {displayFlashCards}
-
-
 
           <ReactPaginate 
             previousLabel = {"Prev"}

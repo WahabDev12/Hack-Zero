@@ -7,6 +7,10 @@ import Home from "./components/Home";
 import CreateFlashCardPage from "./components/flashcards/pages/CreateFlashCardPage";
 import StudySets from "./components/flashcards/pages/StudySets";
 import pseudoCards2 from './components/flashcards/components/pseusdoCards2'
+<<<<<<< HEAD
+import Dashboard from "./components/Dashboard";
+=======
+>>>>>>> dadd29dda160462e8dfd5165386a58b7697c0e4a
 import Comments from "./components/Community/CommentsSection";
 import CommentPage from "./components/Community/CommentPage";
 import PostFormProvider from "./components/Community/Contexts/PostFormContext";
@@ -23,20 +27,20 @@ const App = () => {
     <div className="App">
      
         <Router>  
-<<<<<<< HEAD
             <Routes>
                 <Route path="/community" element={<CommunityPage />}/>
                 <Route exact path="/" element={<Home />} />
                 <Route path="/chillax" element={<Main />} />
                 <Route path = "/flashcards/:id" element = {<FlashCardsTemplate />} /> 
                 <Route path="/community" element={<CommunityPage/>}/>
-                <Route exact path="/" element={<Home />} />
-                <Route path="/chillax" element={<Main />} />
-                <Route path = "/flashcards/:data" element = {<FlashCardsTemplate cards = {pseudoCards}/>} /> 
-                <Route path = "/studysets" element = {<StudySets studysets = {pseudoCards2} /> } />
+                <Route path = "/studysets" element = {<StudySets /> } />
                 <Route path='/createcard' element = {<CreateFlashCardPage />} />
             </Routes>
         </Router> 
+<<<<<<< HEAD
+             
+
+=======
 =======
               <Routes>
                  
@@ -51,8 +55,8 @@ const App = () => {
               </Routes>
 
             </Router>
+>>>>>>> dadd29dda160462e8dfd5165386a58b7697c0e4a
       
->>>>>>> 9e9f5e912cc35b0e3e564c3e23e2464f527ab589
     </div>
   );
 }
