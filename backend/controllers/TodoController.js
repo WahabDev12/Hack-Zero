@@ -1,25 +1,30 @@
 const Todo = require('../models/TodoModel');
 
-const getTodos = (req, res) => {
-    Todo.find()
+const getTodos = async  (req, res) => {
+   await Todo.find()
         .then((todos) => {
-            res.status(200).json(todos)
+            res.status(200).json({todos})
     })
 
 }
 
-const createTodo = (req, res) => {
+const createTodo = async(req, res) => {
     const newTodo = new Todo({
         title: req.body.title
     })
-    newTodo.save();
-    res.status(200).send({newTodo})
+    await newTodo.save();
+    res.status(200).send(newTodo)
 }
-
+    
 const deleteTodo = (req, res) => {
-    const todoId = Todo.findById(req.params.id);
-    Todo.deleteOne({ _id: todoId});
-    return res.status(200).send('Post deleted successfully')
+
+    Todo.findByIdAndRemove(req.params.id).exec((error) => {
+        if (error) {
+            res.status(400).send(error)
+        } else {
+            res.status(200).send("Todo deleted successfully")
+        }
+    });
 
 }
 

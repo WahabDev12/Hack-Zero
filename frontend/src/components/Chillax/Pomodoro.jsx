@@ -1,7 +1,8 @@
-import {useState,useContext} from "react";
+import {useState,useEffect} from "react";
 import { Link } from "react-router-dom";
 import alarmSound from "./audio/iphone_timer_sound.mp3";
 import "./Styles/main.css"
+import axios from "axios"
 
 const Pomodoro = () => {
 
@@ -13,6 +14,56 @@ const Pomodoro = () => {
     const [onBreak,setOnBreak] = useState(true);
     const [breakAudio,setBreakAudio] = useState(new Audio(alarmSound));
     const [isOpened, setIsOpened] = useState(false);
+    const [todos,setTodos] = useState(null);
+    const [loading,setLoading] = useState(false)
+    const [title, setTitle] = useState("");
+    const [alert, setAlert] = useState("")
+
+
+    // Get all todos
+    useEffect(() => {
+        const getTodos = () => {
+          axios.get("http://127.0.0.1:5000/todo/all")
+            .then(res => {
+              setLoading(false);
+              const todos = res.data;
+              setTodos(todos)
+              console.log(todos);
+            })
+            .catch(err => {
+              console.log(err);
+            })
+        }   
+        getTodos()
+      }, [todos]);
+
+      
+      // Add new post
+      
+      const handleAddTodo = (e) => {
+          e.preventDefault()
+          axios.post("http://127.0.0.1:5000/todo/create",{
+              title: title
+          })
+          .then(res => {
+              setTitle(title)
+          })
+          .catch(error => {
+              console.log(error)
+          })
+      }
+
+      const handleDelete = (e) => {
+        e.preventDefault()
+        axios.delete(`http://127.0.0.1:5000/todo/delete`,{
+        })
+        .then(res => {
+            setAlert("Todo deleted successfully")
+        })
+        .catch(error => {
+            console.log(error)
+        })
+      }
 
 
    //Toggle menu
@@ -177,7 +228,7 @@ const Pomodoro = () => {
                   timerOn &&
                    formatTime(displayTime) 
                    
-                }
+                }   
                   </span>
               </a>
               </li>
@@ -200,8 +251,24 @@ const Pomodoro = () => {
                         <div className="todo-section">
                             <h3>Create new tasks 📝</h3>
                             <div className="input-fields">
-                                <input className="todo-input" type="text" placeholder="Add new tasks..." />
-                                <button className="add-btn">Add Task</button>
+
+                                <input
+                                 value={title}    
+                                 onChange={(e)=> setTitle(e.target.value)}
+                                 className="todo-input"
+                                 type="text" placeholder="Add new tasks..."
+                                 
+                                />
+                                <button onClick={handleAddTodo} className="add-btn">Add Task</button>
+                            </div>
+                            <div className="todos">
+                               {
+                                 todos && todos.todos.map(todo => {
+                                   return <div className="todo" href="">
+                                            <input type="checkbox" />
+                                           <p key={todo._id} className="todo-title">{todo.title}</p>
+                                       </div>
+                                 })}
                             </div>
                         </div>
                 </nav> 

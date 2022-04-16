@@ -8,6 +8,16 @@ const MongoStore = require('connect-mongo')
 const communityRoutes = require('./routes/communityRoutes')
 const postRoutes = require('./routes/postRoutes')
 const authRoutes = require('./routes/authRoutes')
+<<<<<<< HEAD
+const cors = require("cors")
+const todoRoutes = require("./routes/TodoRoutes")
+require('./config/db.js')
+
+
+
+app.use(cors({
+  origin:'http://localhost:3000',
+=======
 const commentRoutes = require('./routes/commentRoutes')
 const flashcardsRoute = require('./routes/flashcardsRoute')
 require('dotenv').config()
@@ -16,6 +26,7 @@ require('./config/db.js')
 
 app.use(cors({
   origin:'http://localhost:3001',
+>>>>>>> 1c2d601f5eb95b2e5f3596bb87479a7b0c538547
   credentials: true
 }))
 
@@ -29,6 +40,10 @@ app.use(session({
   
 }))
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1c2d601f5eb95b2e5f3596bb87479a7b0c538547
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(express.json())
@@ -48,6 +63,11 @@ app.get('/', (req, res) => {
 
 
 
+<<<<<<< HEAD
+app.listen(PORT, () => {
+  console.log(`App listening on port ${PORT}`)
+=======
 app.listen(process.env.PORT, () => {
   console.log(`App listening on port ${process.env.PORT}`)
+>>>>>>> 1c2d601f5eb95b2e5f3596bb87479a7b0c538547
 })
