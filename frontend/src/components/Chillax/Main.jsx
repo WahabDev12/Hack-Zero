@@ -15,7 +15,7 @@ import Pomodoro from "./Pomodoro";
 const Main = () => {
     return ( 
         <>
-           
+        <main style={{backgroundColor:"#E7E5DC"}}>
             <Pomodoro />
             <div className="moods-div">
                 <Thunder />
@@ -30,7 +30,7 @@ const Main = () => {
             </div>
                 <br />
                 <Footer />
-
+        </main>
         </>
      );
 }
