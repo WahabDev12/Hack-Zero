@@ -1,15 +1,17 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router'
 import axios from 'axios'
 import StudySetsCards from './StudySetsCards'
-import FilterBar from '../components/FilterBar'
 import '../styles/studysetscards.css'
-import Paginate from  "react-paginate"
+
 
 
 function StudySets() {
     const [info, setInfo] = useState([])
     const [cards, setCards] = useState(info)
     const [title, setTitle] = useState(" ")
+    const navigate = useNavigate()
+    const user = "";
 
     axios.get('http://localhost:5000/flashcards', {
       withCredentials: true
@@ -63,18 +65,35 @@ function StudySets() {
             </div>
           </div>
 
+            {user? 
             <div className="studysets-card-container">
+              
                 {cards.map(studyset => {
                     return <>
-                            <div key={studyset._id} className="studyset-front" onClick={() => {window.open("http://localhost:3000/flashcards/" + studyset._id, '_self')}}>
+                            <div key={studyset._id} className="studyset-front" onClick={() => {navigate("/flashcards/" + studyset._id, '_self')}}>
                                 <StudySetsCards studycards={studyset}  />
                             </div>
 
                         </>
                     
                 })}
+              
+            </div>:
+            
                 
-            </div>
+            <div className="studysets-card-container">
+              
+                {cards.map(studyset => {
+                    return <>
+                            <div key={studyset._id} className="studyset-front" onClick={() => {navigate("/flashcards/" + studyset._id, '_self')}}>
+                                <StudySetsCards studycards={studyset}  />
+                            </div>
+
+                        </>
+                    
+                })}
+          
+          </div>}
 
         </>
     )
