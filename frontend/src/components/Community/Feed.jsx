@@ -8,6 +8,15 @@ import './Styles/Feed.css'
 
 const Feed = () => {
   const {posts} = useContext(PostDataContext)
+  if(posts && posts.length == 0){
+    return(
+      <>
+        <main className='feed-container2'>
+              This Community has no posts😕
+        </main>
+      </>
+    )
+  }
   return (
     <>
         <main className='feed-container' >

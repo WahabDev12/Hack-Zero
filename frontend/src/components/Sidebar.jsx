@@ -1,6 +1,26 @@
+import axios from "axios"
 import "./Chillax/Styles/dashboard.css"
-
+import { userContext } from "./Community/Contexts/userContext"
+import {useContext} from "react"
 const Sidebar = () => {
+    
+    const BACKEND_URI = 'http://localhost:5000/'
+    const {user, setUser} = useContext(userContext)
+
+    const logout = () => {
+        axios({
+            method: 'get',
+            url: BACKEND_URI + `user/logout`,
+            withCredentials: true,
+            })
+            .then((res) => {
+                if(!res.isAuth){
+                    setUser(null)
+                }
+            })
+
+        
+    }
     return ( 
         <section id="sidebar">
 
@@ -11,39 +31,39 @@ const Sidebar = () => {
 
                 <section className="links-container">
 
-                <a className="links">
+                <a href ='/dashboard' className="links">
                     
                     <span>🏠 Dashboard</span>
                 </a>
 
-                <a className="links">
+                <a href ='/chillax' className="links">
                     
                     <span> 💆‍♂️ Chillax</span>
                 </a>
 
-                <a className="links">
+                <a href ='/communities' className="links">
                     
                     <span>👨‍👦‍👦 Join Groups</span>
                 </a>
 
-                    <a className="links">
+                    <a  className="links">
 
                     <span>🃏 My Cards</span>
 
                 </a>
 
-                <a className="links">
+                <a href ='/communities' className="links">
                     
                     <span> 🌎 Connect</span>
 
                 </a>
 
-                <a className="links">
+                <a href = '/flashcards' className="links">
                     
                     <span>⚡ FlashGo</span>
                 </a>
 
-                <a className="links">
+                <a onClick = {logout} className="links">
                    
                     <span>🏃‍♂️ Logout</span>
                 </a>

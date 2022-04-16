@@ -54,12 +54,12 @@ const Hero = () => {
   return (
    <>
     {community && <div className='community-header-container' style={{backgroundColor: "#0279d2", color: "white"}}>
-        <img src='/science-logo.jpg'/>
+        <img src="https://img.icons8.com/doodle/65/000000/group.png"/>
         <h1 className='community-logo'>{community.name}</h1>
         
         {user && community.members.includes(user._id) ? <button onClick={leave} className='join-btn'>Leave</button> : <button onClick={join} className='join-btn'>Join</button>}
         {/* {user && <img className="profile" src={user.imageUrl}/>} */}
-        {!user ? <button className="signup" onClick={signUp}> Sign Up</button> : <button className="logout-btn" onClick={logout}>Logout</button>}
+        {!user ? <button className="logout-btn" onClick={signUp}> Sign Up</button> : <button className="logout-btn" onClick={logout}>Logout</button>}
     </div>}
    </>
   )
