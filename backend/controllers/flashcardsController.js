@@ -21,7 +21,7 @@ const getFlashCardsById = (req, res) => {
 
 
 const getFlashCards = (req, res) => {
-    console.log("get flashcards is active")
+    // console.log("get flashcards is active")
     FlashCard.find()
         .then((cards) => {
             res.status(200).json(cards)

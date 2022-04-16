@@ -8,11 +8,31 @@ const MongoStore = require('connect-mongo')
 const communityRoutes = require('./routes/communityRoutes')
 const postRoutes = require('./routes/postRoutes')
 const authRoutes = require('./routes/authRoutes')
+
+
+const flashcardsRoute = require('./routes/flashcardsRoute')
+const todoRoutes = require("./routes/TodoRoutes")
+require('dotenv').config()
+require("./config/db.js")
+
+
+const cors = require("cors")
+const todoRoutes = require("./routes/TodoRoutes")
+require('./config/db.js')
+
+
+
+app.use(cors({
+  origin:'http://localhost:3000',
+
+
+
 const commentRoutes = require('./routes/commentRoutes')
 const flashcardsRoute = require('./routes/flashcardsRoute')
 require('dotenv').config()
 const todoRoutes = require("./routes/TodoRoutes")
 require('./config/db.js')
+
 
 app.use(cors({
   origin:'http://localhost:3000',
@@ -29,6 +49,13 @@ app.use(session({
   
 }))
 
+app.use(cors({
+  origin:'http://localhost:3000',
+  credentials: true
+}))
+
+
+
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(express.json())
@@ -36,10 +63,16 @@ app.use(express.urlencoded({extended: true}))
 app.use('/auth', authRoutes)
 app.use('/community',communityRoutes)
 app.use('/post',postRoutes)
+
 app.use('/comment', commentRoutes)
+
 app.use('/createcard', flashcardsRoute)
 app.use('/flashcards', flashcardsRoute)
 app.use("/todo",todoRoutes)
+
+
+
+
 
 app.get('/', (req, res) => {
 
@@ -47,6 +80,13 @@ app.get('/', (req, res) => {
 })
 
 PORT = 5000
+
+
+
+PORT = 5000
+
+
+
 
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`)

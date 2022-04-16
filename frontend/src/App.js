@@ -23,6 +23,21 @@ const App = () => {
     <div className="App">
      
         <Router>  
+<<<<<<< HEAD
+            <Routes>
+                <Route path="/community" element={<CommunityPage />}/>
+                <Route exact path="/" element={<Home />} />
+                <Route path="/chillax" element={<Main />} />
+                <Route path = "/flashcards/:id" element = {<FlashCardsTemplate />} /> 
+                <Route path="/community" element={<CommunityPage/>}/>
+                <Route exact path="/" element={<Home />} />
+                <Route path="/chillax" element={<Main />} />
+                <Route path = "/flashcards/:data" element = {<FlashCardsTemplate cards = {pseudoCards}/>} /> 
+                <Route path = "/studysets" element = {<StudySets studysets = {pseudoCards2} /> } />
+                <Route path='/createcard' element = {<CreateFlashCardPage />} />
+            </Routes>
+        </Router> 
+=======
               <Routes>
                  
                   <Route exact path="/" element={<Home />} />
@@ -37,6 +52,7 @@ const App = () => {
 
             </Router>
       
+>>>>>>> 9e9f5e912cc35b0e3e564c3e23e2464f527ab589
     </div>
   );
 }
