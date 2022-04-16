@@ -11,9 +11,11 @@ import Comments from "./components/Community/CommentsSection";
 import CommentPage from "./components/Community/CommentPage";
 import PostFormProvider from "./components/Community/Contexts/PostFormContext";
 import PostDataProvider from "./components/Community/Contexts/PostDataContext";
-import Navbar from "./components/Chillax/Navbar";
-import UserProvider from "./components/Community/Contexts/userContext";
-
+import Dashboard from "./components/Dashboard";
+import HomeCards from './components/TestFlash/HomeCard';
+import CreateCard from "./components/TestFlash/CreateCard";
+import CommunityHome from "./components/Community/CommunityHome";
+import StudySet from './components/TestFlash/StudySet';
 
 
 const App = () => {
@@ -32,9 +34,18 @@ const App = () => {
                   <Route path="/chillax" element={<Main />} />
                   <Route path="comment/:id" element={<CommentPage/>} />
                   <Route path = "/flashcards/:id" element = {<FlashCardsTemplate />} />
-                  <Route exact path="/createcard" element={<CreateFlashCardPage />} />
-                  <Route path="/chillax" element={<Main />} />
+                  <Route path="/createcard" element={<CreateFlashCardPage />} />
+                  <Route path="/dashboard" element={<Dashboard />} />
+                  <Route path="/communities" element={<CommunityHome />} />
 
+
+
+                  {/* CARD TEST */}
+                  <Route path="/flashcards" element={<HomeCards />} />
+                  <Route path="/newcard" element={<CreateCard />} />
+                  <Route path="/studyset" element={<StudySet />} />
+
+                  
               </Routes>
 
             </Router>

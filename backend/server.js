@@ -48,8 +48,8 @@ app.get('/', (req, res) => {
   res.send(`Hack Zero! <p> ${req.isAuthenticated()}</p>` )
 })
 
+PORT = 5000
 
-
-app.listen(process.env.PORT, () => {
-  console.log(`App listening on port ${process.env.PORT}`)
+app.listen(PORT, () => {
+  console.log(`App listening on port ${PORT}`)
 })

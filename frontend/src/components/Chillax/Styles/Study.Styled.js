@@ -1,4 +1,8 @@
-/* 
+import styled from "styled-components";
+
+export const StudyStyled = styled.section`
+
+
 .main-card{
     margin-left: 300px;
     box-sizing: border-box;
@@ -85,4 +89,8 @@ small{
 
 
 
- */
+
+
+
+
+`
