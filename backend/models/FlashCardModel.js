@@ -21,17 +21,9 @@ const FlashCardSchema = new Schema({
         default:"Private",
     },
 
-<<<<<<< HEAD
-    cards: {
-        type:"array",
-    },
-
-    userId:{    
-         type: Schema.Types.ObjectId
+    cards:{
+        type:"array"
     }
-=======
-    cards:[CardSchema]
->>>>>>> 997cd7d3166086750dee7d9fd4a41e8a4cc57366
 })
 
 
