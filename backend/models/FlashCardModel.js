@@ -15,12 +15,15 @@ const FlashCardSchema = new Schema({
         required: true,
     },
 
+
     visibility: {
         type:"string",
         default:"Private",
     },
 
-    cards:[CardSchema]
+    cards:{
+        type:"array"
+    }
 })
 
 

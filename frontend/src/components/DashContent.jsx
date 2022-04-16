@@ -25,7 +25,7 @@ const DashContent = () => {
 
       </a>
 
-      <a href="/community" className="dash-card">
+      <a href="/communities" className="dash-card">
       <button  
         className="dash-button"
        > 
