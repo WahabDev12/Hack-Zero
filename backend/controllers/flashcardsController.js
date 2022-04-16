@@ -4,11 +4,17 @@ const createFlashCard = (req, res) => {
     console.log("route active")
     const newFlashCard = new FlashCard({
         title: req.body.title,
-        description: req.body.tags,
         visibility: req.body.visibility,
-        cards: req.body.cardFields,
+        cards: req.body.inputFields,
     })
     newFlashCard.save().then(() => {console.log("new card added")})
+
+}
+
+
+
+const createNew = (re,res) => {
+    
 
 }
 

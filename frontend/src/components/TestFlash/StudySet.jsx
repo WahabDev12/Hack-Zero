@@ -57,10 +57,10 @@ const StudySet = () => {
     .map(card =>{
       return <div key ={card.topic} className = {`flash-card ${tipOver ? 'tipOver' : ''}` } onClick = {() => setTipOver(!tipOver)}>
                 <div className="card-front">
-                        {card.topic}
+                        {card.question}
                 </div>
                 <div className="card-back">
-                        {card.content} 
+                        {card.answer} 
                 </div>
       
       

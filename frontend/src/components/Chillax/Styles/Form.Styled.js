@@ -76,10 +76,24 @@ export const FormStyled = styled.section`
       font-size:15px;
       border-radius:6px;
    }
+
+   .create-set{
+      outline:none;
+      border:2px solid #A0A7D3;
+      padding:12px;
+      background-color: #3F51B5;
+      width:140px;
+      margin: auto;
+      color:white;
+      font-size:15px;
+      border-radius:6px;
+   }
    .card-wrapper{
        width:150px;
        margin:auto;
    }
+
+
 
    .add-card:hover{
     background-color: #6173ce;
