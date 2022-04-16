@@ -7,8 +7,16 @@ const MongoStore = require('connect-mongo')
 const communityRoutes = require('./routes/communityRoutes')
 const postRoutes = require('./routes/postRoutes')
 const authRoutes = require('./routes/authRoutes')
+const cors = require("cors")
 const todoRoutes = require("./routes/TodoRoutes")
 require('./config/db.js')
+
+
+
+app.use(cors({
+  origin:'http://localhost:3000',
+  credentials: true
+}))
 
 app.use(session({
 
@@ -19,6 +27,8 @@ app.use(session({
     cookie: {maxAge: 180 * 60 * 1000}
   
 }))
+
+
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(express.json())
@@ -35,6 +45,6 @@ app.get('/', (req, res) => {
 
 PORT = 5000
 
-app.listen(process.env.PORT, () => {
+app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`)
 })

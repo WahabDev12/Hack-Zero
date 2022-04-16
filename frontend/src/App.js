@@ -7,7 +7,7 @@ import Home from "./components/Home";
 import CreateFlashCardPage from "./components/flashcards/pages/CreateFlashCardPage";
 import StudySets from "./components/flashcards/pages/StudySets";
 import pseudoCards2 from './components/flashcards/components/pseusdoCards2'
-
+import Dashboard from "./components/Dashboard";
 
 const App = () => {
 
@@ -20,7 +20,8 @@ const App = () => {
                   
                   <Route path="/community" element={<CommunityPage/>}/>
                   <Route exact path="/" element={<Home />} />
-                    <Route path="/chillax" element={<Main />} />
+                  <Route path="/chillax" element={<Main />} />
+                  <Route path="/dashboard" element={<Dashboard />} />
 
                   <Route path = "/flashcards/:data" element = {<FlashCardsTemplate cards = {pseudoCards}/>} /> 
                   <Route path = "/studysets" element = {<StudySets studysets = {pseudoCards2} /> } />
