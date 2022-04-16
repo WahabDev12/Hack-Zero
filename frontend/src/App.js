@@ -12,7 +12,10 @@ import CommentPage from "./components/Community/CommentPage";
 import PostFormProvider from "./components/Community/Contexts/PostFormContext";
 import PostDataProvider from "./components/Community/Contexts/PostDataContext";
 import Dashboard from "./components/Dashboard";
-
+import HomeCards from './components/TestFlash/HomeCard';
+import CreateCard from "./components/TestFlash/CreateCard";
+import CommunityHome from "./components/Community/CommunityHome";
+import StudySet from './components/TestFlash/StudySet';
 
 
 const App = () => {
@@ -32,6 +35,15 @@ const App = () => {
                   <Route path = "/flashcards/:id" element = {<FlashCardsTemplate />} />
                   <Route path="/createcard" element={<CreateFlashCardPage />} />
                   <Route path="/dashboard" element={<Dashboard />} />
+                  <Route path="/communities" element={<CommunityHome />} />
+
+
+
+                  {/* CARD TEST */}
+                  <Route path="/flashcards" element={<HomeCards />} />
+                  <Route path="/newcard" element={<CreateCard />} />
+                  <Route path="/studyset" element={<StudySet />} />
+
                   
               </Routes>
 

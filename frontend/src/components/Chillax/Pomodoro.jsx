@@ -35,13 +35,13 @@ const Pomodoro = () => {
             })
         }   
         getTodos()
+        setTitle("")
       }, [todos]);
 
       
       // Add new post
       
-      const handleAddTodo = (e) => {
-          e.preventDefault()
+      const handleAddTodo = () => {
           axios.post("http://127.0.0.1:5000/todo/create",{
               title: title
           })
@@ -51,10 +51,10 @@ const Pomodoro = () => {
           .catch(error => {
               console.log(error)
           })
+          setTitle("")
       }
 
-      const handleDelete = (e) => {
-        e.preventDefault()
+      const handleDelete = () => {
         axios.delete(`http://127.0.0.1:5000/todo/delete`,{
         })
         .then(res => {
@@ -264,9 +264,9 @@ const Pomodoro = () => {
                             <div className="todos">
                                {
                                  todos && todos.todos.map(todo => {
-                                   return <div className="todo" href="">
+                                   return <div  key={todo._id} className="todo" href="">
                                             <input type="checkbox" />
-                                           <p key={todo._id} className="todo-title">{todo.title}</p>
+                                           <p className="todo-title">{todo.title}</p>
                                        </div>
                                  })}
                             </div>
