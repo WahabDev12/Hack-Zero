@@ -8,16 +8,20 @@ const getCommunities = (req, res) => {
 }
 
 const createCommunity = (req, res) => {
+    
     const newCommunity = new Community({
-        name: req.body.name
+        name: req.body.name,
+        color: req.body.color,
+        description: req.body.desc
     })
     newCommunity.save()
+    console.log("created")
 }
 
 const joinCommunity = (req, res) => {
     Community.findOneAndUpdate({_id: req.params.id},{
         $addToSet:{
-            members:req.body.user._id
+            members:req.body.userId
         }
     }).then(() => {
         console.log("member successfully added")
@@ -28,11 +32,18 @@ const joinCommunity = (req, res) => {
 const leaveCommunity = (req, res) => {
     Community.findOneAndUpdate({_id: req.params.id}, {
         $pull:{
-            members:req.body.user._id
+            members:req.body.userId
         }
     }).then(() => {
         console.log("member removed from community")
     })
 }
 
-module.exports = {getCommunities, createCommunity, joinCommunity, leaveCommunity}
+const getCommunitiesById = (req, res) => {
+    Community.findOne({_id: req.params.id})
+    .then((community) => {
+        res.status(200).json(community)
+})
+}
+
+module.exports = {getCommunities, createCommunity, joinCommunity, leaveCommunity, getCommunitiesById}

@@ -24,7 +24,8 @@ const App = () => {
 
   return (
     <div className="App">
-     
+      <UserProvider>
+      <PostFormProvider>
         <Router>  
               <Routes>
                  
@@ -48,7 +49,8 @@ const App = () => {
               </Routes>
 
             </Router>
-      
+      </PostFormProvider>
+      </UserProvider>
     </div>
   );
 }
