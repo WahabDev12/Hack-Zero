@@ -15,15 +15,8 @@ import Pomodoro from "./Pomodoro";
 const Main = () => {
     return ( 
         <>
+           
             <Pomodoro />
-            <div className="mood-tags">
-
-                <button>Productivity</button>
-                <button>Focus</button>
-                <button>Relax</button>
-
-            </div>
-
             <div className="moods-div">
                 <Thunder />
                 <Rain />
@@ -34,9 +27,7 @@ const Main = () => {
                 <Ocean />
                 <Stadium />
                 <Leaves />
-
-
-                </div>
+            </div>
                 <br />
                 <Footer />
 

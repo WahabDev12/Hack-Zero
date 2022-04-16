@@ -7,7 +7,7 @@ const FlashCards = ({Fcard}) => {
    
     return (
         <div className = {`flash-card ${tipOver ? 'tipOver' : ''}` } onClick = {() => setTipOver(!tipOver)}>
-            <div className = "card-front">{Fcard.title}</div>
+            <div className = "card-front">{Fcard.topic}</div>
             <div className = "card-back">{Fcard.content}</div>
         </div>
 

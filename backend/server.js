@@ -1,12 +1,14 @@
 require('dotenv').config()
 const express = require('express')
 const app = express()
+const cors = require('cors')
 const passport = require('passport')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
 const communityRoutes = require('./routes/communityRoutes')
 const postRoutes = require('./routes/postRoutes')
 const authRoutes = require('./routes/authRoutes')
+<<<<<<< HEAD
 const cors = require("cors")
 const todoRoutes = require("./routes/TodoRoutes")
 require('./config/db.js')
@@ -15,6 +17,16 @@ require('./config/db.js')
 
 app.use(cors({
   origin:'http://localhost:3000',
+=======
+const commentRoutes = require('./routes/commentRoutes')
+const flashcardsRoute = require('./routes/flashcardsRoute')
+require('dotenv').config()
+const todoRoutes = require("./routes/TodoRoutes")
+require('./config/db.js')
+
+app.use(cors({
+  origin:'http://localhost:3001',
+>>>>>>> 1c2d601f5eb95b2e5f3596bb87479a7b0c538547
   credentials: true
 }))
 
@@ -28,7 +40,10 @@ app.use(session({
   
 }))
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1c2d601f5eb95b2e5f3596bb87479a7b0c538547
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(express.json())
@@ -36,6 +51,9 @@ app.use(express.urlencoded({extended: true}))
 app.use('/auth', authRoutes)
 app.use('/community',communityRoutes)
 app.use('/post',postRoutes)
+app.use('/comment', commentRoutes)
+app.use('/createcard', flashcardsRoute)
+app.use('/flashcards', flashcardsRoute)
 app.use("/todo",todoRoutes)
 
 app.get('/', (req, res) => {
@@ -43,8 +61,13 @@ app.get('/', (req, res) => {
   res.send(`Hack Zero! <p> ${req.isAuthenticated()}</p>` )
 })
 
-PORT = 5000
 
+
+<<<<<<< HEAD
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`)
+=======
+app.listen(process.env.PORT, () => {
+  console.log(`App listening on port ${process.env.PORT}`)
+>>>>>>> 1c2d601f5eb95b2e5f3596bb87479a7b0c538547
 })
