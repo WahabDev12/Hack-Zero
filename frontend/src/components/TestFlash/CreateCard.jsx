@@ -1,13 +1,22 @@
 import Sidebar from "../Sidebar";
 import { HeaderStyled } from "../Chillax/Styles/Header.Styled";
 import { FormStyled } from '../Chillax/Styles/Form.Styled';
+import { useNavigate } from "react-router-dom";
 import {useState} from "react"
+import axios from "axios";
 
 const CreateCard = () => {
 
+    const navigate = useNavigate()
+
+    const [title, setTitle] = useState("")
+    const [visibility, setVisibility] = useState("")
     const [inputFields, setInputFields] = useState([
-        {question: '', age: ''}
+        {question: '', answer: ''}
     ])
+
+
+
 
 
     const handleFormChange = (index, event) => {
@@ -16,11 +25,39 @@ const CreateCard = () => {
         setInputFields(data);
      }
 
-    const addFields = (e) => {
-        e.preventDefault();
+    const addFields = () => {
+        
+        
         let newfield = { question: '', answer: '' }
     
         setInputFields([...inputFields, newfield])
+    }
+
+
+
+
+    const handleSubmit = (e) =>{
+
+        e.preventDefault()
+
+        const studysets = {
+            title,
+            visibility,
+            inputFields,
+        }
+
+        console.log(studysets)
+        
+
+        axios.post({
+            url: 'http://localhost:5000/newcard',
+            withCredentials: true,
+            data:studysets,
+        }).then((res) => {console.log("successful")})
+        .catch((err) => {console.log(err)})
+
+        navigate("/flashcards")
+
     }
 
     return ( 
@@ -36,17 +73,23 @@ const CreateCard = () => {
 
         <FormStyled>
             <div className="dyno-forms">
-            <form>
                 <div className="settings">
                     <div>
-                    <p>Set Name</p>
-                    <input className="set-input" type="text" placeholder="Name of Set...eg: Biology" />
+                    <p>Title</p>
+                    <input className="set-input" 
+                     value= {title} type="text"
+                      placeholder="Name of Set...eg: Biology" 
+                      onChange={(e)=>{setTitle(e.target.value)}}/>
 
                     </div>
 
                     <div>
                     <p>Set Privacy</p>
-                        <select name="format" id="format">
+                        <select 
+                            name="format" 
+                            id="format"  
+                            value ={visibility} 
+                            onChange={(e)=>{setVisibility(e.target.value)}}>
                                     <option selected disabled>Select Privacy</option>
                                     <option value="public">Public</option>
                                     <option value="private">Private</option>
@@ -63,14 +106,16 @@ const CreateCard = () => {
 
                 <br></br>
 
+            <form >
                     {
                        inputFields.map((input, index) => {
                         return (
-                            <div>
-                            <div className="q-and-a">
+                            <div key = {index}> 
+                            <div  className="q-and-a">
                              
-                             <input 
+                            <input 
                               type="text"
+                              name="question"
                                placeholder={`Question #${index + 1}`}
                                value={input.question}
                                onChange={event => handleFormChange(index, event)}
@@ -79,9 +124,10 @@ const CreateCard = () => {
 
                             <input 
                                  type="text" 
+                                 name = "answer"
                                  placeholder="Answer..."
-                                 value={input.asnwer}
-                                 onChange={event => handleFormChange(index, event)}
+                                 value={input.answer}
+                                 onChange={(event)=> handleFormChange(index, event)}
 
                              />
                 
@@ -95,9 +141,17 @@ const CreateCard = () => {
                 
                 <br></br>
                 <div className="card-wrapper">
-                    <button onClick={addFields} className="add-card">Add Card</button>
+                    <button onClick={addFields()} className="add-card">Add Card</button>
                 </div>
+                <br></br>
+                <br></br>
+                
+            <div className="card-wrapper-two">
+                    <button onClick={handleSubmit}  className="create-set">Create Card</button>
+            </div>
             </form>
+
+
 
             </div>
 
