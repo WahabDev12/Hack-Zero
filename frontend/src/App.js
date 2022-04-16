@@ -43,7 +43,7 @@ const App = () => {
                   {/* CARD TEST */}
                   <Route path="/flashcards" element={<HomeCards />} />
                   <Route path="/newcard" element={<CreateCard />} />
-                  <Route path="/studyset" element={<StudySet />} />
+                  <Route path="/studyset/:id" element={<StudySet />} />
 
                   
               </Routes>

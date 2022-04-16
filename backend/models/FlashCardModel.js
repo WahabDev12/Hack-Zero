@@ -1,25 +1,27 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema
 
+
+CardSchema = new Schema({
+	question: String,
+	answer: String,
+	
+})
+
+
 const FlashCardSchema = new Schema({
     title:{
         type:"string",
         required: true,
-    },
-    
-    description: {
-        type:"string",
-        
-        
     },
 
 
     visibility: {
         type:"string",
         default:"Private",
-        required: true,
     },
 
+<<<<<<< HEAD
     cards: {
         type:"array",
     },
@@ -27,6 +29,9 @@ const FlashCardSchema = new Schema({
     userId:{    
          type: Schema.Types.ObjectId
     }
+=======
+    cards:[CardSchema]
+>>>>>>> 997cd7d3166086750dee7d9fd4a41e8a4cc57366
 })
 
 
