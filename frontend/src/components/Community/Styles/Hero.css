@@ -45,3 +45,8 @@
     align-self: center;
     background-color: #ffdd04;
 }
+
+.join-btn:hover{
+    border: #ffdd04 2px solid;
+    background-color: transparent;
+}

@@ -21,6 +21,9 @@ const Sidebar = () => {
 
         
     }
+    const login = () => {
+        window.open(BACKEND_URI + `auth/google`)
+    }
     return ( 
         <section id="sidebar">
 
@@ -63,10 +66,13 @@ const Sidebar = () => {
                     <span>⚡ FlashGo</span>
                 </a>
 
-                <a onClick = {logout} className="links">
+                { user ? <a onClick = {logout} className="links">
                    
-                    <span>🏃‍♂️ Logout</span>
-                </a>
+                    { <span>🏃‍♂️ Logout</span>}
+                </a> : <a onClick = {login} className="links">
+                   
+                   { <span>🚶 Login</span>}
+               </a>}
 
                 </section>
 

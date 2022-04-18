@@ -10,6 +10,7 @@
     "axios": "^0.26.1",
     "dotenv": "^16.0.0",
     "moment": "^2.29.2",
+    "pagination": "^0.4.6",
     "react": "^18.0.0",
     "react-color": "^2.19.3",
     "react-dom": "^18.0.0",

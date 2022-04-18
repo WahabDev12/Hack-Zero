@@ -1,11 +1,15 @@
 import "./Chillax/Styles/dashboard.css";
+import { userContext } from "./Community/Contexts/userContext";
+import { useContext } from "react";
 
 const DashContent = () => {
+
+    const { user, setUser}  = useContext(userContext)
     return ( 
         <section id="main-dashboard-content">
         <div className="dash-header">
             <h3 className="dash-name">Dashboard</h3>
-            <h3 className="welcome">Welcome Jack Maaye 👋</h3>
+            {user ? <h3 className="welcome">Welcome {user.username}👋</h3> : <h3 className="welcome">Anonymoyus</h3>}
         </div>
         <h3 className="quote">“Focus on being productive 💪 instead of busy. 😎”</h3>
 
