@@ -213,7 +213,7 @@ const Pomodoro = () => {
         <>
    
    <header class="header">
-		<h1 class="logo"><Link to="/chillax" >Chillax🧘‍♂️ </Link></h1>
+		<h1 class="logo"><Link to="/dashboard" >Chillax🧘‍♂️ </Link></h1>
       <ul class="main-nav">
           <li> <a href="#openModal-about" className="pom-button">
               <span> 

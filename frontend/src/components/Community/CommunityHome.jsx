@@ -12,6 +12,7 @@ const CommunityHome = () => {
     const BACKEND_URI = 'http://localhost:5000/'
     const {user, setUser} = useContext(userContext)
     const [communities, setCommunities] = useState(null)
+
     const getCommunities = () => {
       axios({
         method: 'get',
@@ -22,6 +23,7 @@ const CommunityHome = () => {
     useEffect(() => {
         getCommunities()
     }, []);
+    
     return (
         <>
         <CommunityForm/>
