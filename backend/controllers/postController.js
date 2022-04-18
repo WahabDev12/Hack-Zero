@@ -1,6 +1,7 @@
 const Post = require('../models/postModel')
 
 const getPosts = (req, res) => {
+    
     Post.find({communityId: req.params.id})
         .then((posts) => {
             res.status(200).json(posts)
@@ -10,6 +11,7 @@ const getPosts = (req, res) => {
 const createPost = (req, res) => {
     console.log(req.body)
     const newPost = new Post({
+        author: req.body.post.username,
         title: req.body.post.title,
         subContent: req.body.post.subContent,
         communityId: req.params.communityId

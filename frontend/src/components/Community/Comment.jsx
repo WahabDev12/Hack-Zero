@@ -1,13 +1,16 @@
-import React from 'react'
+import {React, createContext, useContext} from 'react'
+import { userContext } from './Contexts/userContext'
 import './Styles/Comment.css'
+import moment from 'moment'
 
 const Comment = ({data}) => {
+  const {user, setUser} = useContext(userContext)
   return (
     <>
         <div className='comment-container'>
             <div className='comment-meta'>
-                <img src='/science-logo.jpg'/>
-                <span>author</span><span>2hrs ago</span>
+                <img src={data.imageurl}/>
+                {user&&<span>@{user.username}</span>}<span>{moment(data.date).fromNow()}</span>
             </div>
         
             <div className='comment-text'>

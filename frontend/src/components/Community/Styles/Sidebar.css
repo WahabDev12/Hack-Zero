@@ -30,6 +30,7 @@ button{
     box-shadow: var(--post-shadow);
     margin-bottom: 1.5rem;
     background-color: var(--element-base);
+    border-radius: 4px;
 }
 
 .action-block{
@@ -62,7 +63,8 @@ button{
 .action-block .description{
     width: 100%;
     align-self: center;
-    margin-left: 2rem;
+    max-width: 95%;
+    text-align: justify;
 }
 
 
@@ -98,7 +100,7 @@ button{
 }
 
 .post-stats {
-    font-size: 1.5ch;
+    font-size: 1.2ch;
 }
 .footer{
     position: relative;

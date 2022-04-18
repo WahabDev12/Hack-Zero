@@ -1,21 +1,11 @@
+import styled from "styled-components";
 
+export const StudyStyled = styled.section`
 
-.flashcards-wrapper{
-    display:grid;
-    margin-left: 20rem;
-    grid-template-rows:repeat(1,15rem);
-    grid-template-columns: repeat(1, minmax(186px,1fr));;
-    grid-column-gap:1rem;
-    grid-row-gap:1rem;
-    justify-content:center;
-    left:5rem;
-    width: 50%;
-}
 
 .main-card{
     margin-left: 300px;
     box-sizing: border-box;
-
     height: 100%;
     padding: 20px 25px;
     margin-top:1.5rem;
@@ -53,15 +43,6 @@ button:hover{
     display:flex;
     justify-content:center;
     align-items:center;
-
-    background-color:white;
-    width:100%;
-    height:100%;
-    position:relative;
-    border-radius:1rem;
-    color:rgba(9, 10, 26, 0.836);
-    box-shadow: 0.5rem 0.5rem 0.5rem ;
-
     background-color:#fff;
     width:35rem;
     margin:auto;
@@ -105,46 +86,11 @@ small{
 }
 
 
-/* .paginationActive{
-    color:white;
-    background-color:rgb(2, 2, 8) ;
-    width:2rem;
-    margin-right:0.02rem;
-} */
-
-.paginationBttns{
-    display: flex;
-    justify-content:center;
-    width: 80%;
-    height:40px;
-    list-style: none;
-
-}
-
-
-
-
-.paginationBttns a:hover{
-    color:white;
-    background-color:rgb(2, 2, 8) ;
-}
-
-
-.paginationBttns a{
-    border-radius: 0.5rem;
-    padding:0.5rem;
-    border:1px solid white;
-    color:rgb(10, 10, 20);
-    margin: 8px;
-    cursor:pointer;
-    -webkit-border-radius: 0.5rem;
-    -moz-border-radius: 0.5rem;
-    -ms-border-radius: 0.5rem;
-    -o-border-radius: 0.5rem;
-}
 
 
 
 
 
 
+
+`

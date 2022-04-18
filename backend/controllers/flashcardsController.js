@@ -6,7 +6,7 @@ const createFlashCard = (req, res) => {
         title: req.body.title,
         description: req.body.tags,
         visibility: req.body.visibility,
-        cards: req.body.cardFields,
+        cards: req.body.inputFields,
     })
     newFlashCard.save().then(() => {console.log("new card added")})
 

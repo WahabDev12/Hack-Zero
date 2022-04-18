@@ -3,10 +3,10 @@ import { formContext } from './Contexts/PostFormContext'
 import RecentPosts from './RecentPosts'
 import { PostDataContext } from './Contexts/PostDataContext'
 import './Styles/Sidebar.css'
-import Skeleton from 'react-loading-skeleton'
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 
 const Sidebar = () => {
-  const {posts} = useContext(PostDataContext)
+  const {posts, community} = useContext(PostDataContext)
   const {postFormIsOpen, setPostFormOpen} = useContext(formContext)
   const openModal = () => {
       setPostFormOpen(true)
@@ -17,11 +17,11 @@ const Sidebar = () => {
             <div className='action-block'>
                 <h5 className='block-header'>About Community</h5>
                 <div className='description'>
-                     <p>Lorem ipsum dolor  amet consectetur adipisicing elit. Quaerat, nesciunt ex voluptatibus magni unde impedit.</p>
+                     {community? <p>{community.description}</p> : <Skeleton width={280} height={60}/>}
                 </div>
                 <div className='member-stats-container'>
-                    <span>90</span>
-                    <span className='member-stats'>members </span>
+                    {community?<span>{community.members.length}</span> : <Skeleton/>}
+                    {community ? <span className='member-stats'>members </span> : <Skeleton/>}
                 </div>
                 <button onClick={openModal} className='post-btn'>Create a new Post</button>
                 

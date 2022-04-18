@@ -7,17 +7,16 @@ import Home from "./components/Home";
 import CreateFlashCardPage from "./components/flashcards/pages/CreateFlashCardPage";
 import StudySets from "./components/flashcards/pages/StudySets";
 import pseudoCards2 from './components/flashcards/components/pseusdoCards2'
-<<<<<<< HEAD
 import Dashboard from "./components/Dashboard";
-=======
->>>>>>> dadd29dda160462e8dfd5165386a58b7697c0e4a
 import Comments from "./components/Community/CommentsSection";
 import CommentPage from "./components/Community/CommentPage";
 import PostFormProvider from "./components/Community/Contexts/PostFormContext";
 import PostDataProvider from "./components/Community/Contexts/PostDataContext";
-import Dashboard from "./components/Dashboard";
-
-
+import HomeCards from './components/TestFlash/HomeCard';
+import CreateCard from "./components/TestFlash/CreateCard";
+import CommunityHome from "./components/Community/CommunityHome";
+import StudySet from './components/TestFlash/StudySet';
+import UserProvider from "./components/Community/Contexts/userContext";
 
 const App = () => {
 
@@ -25,9 +24,10 @@ const App = () => {
 
   return (
     <div className="App">
-     
+      <UserProvider>
+      <PostFormProvider>
         <Router>  
-            <Routes>
+            {/* <Routes>
                 <Route path="/community" element={<CommunityPage />}/>
                 <Route exact path="/" element={<Home />} />
                 <Route path="/chillax" element={<Main />} />
@@ -36,12 +36,10 @@ const App = () => {
                 <Route path = "/studysets" element = {<StudySets /> } />
                 <Route path='/createcard' element = {<CreateFlashCardPage />} />
             </Routes>
-        </Router> 
-<<<<<<< HEAD
+        </Router>  */}
+
              
 
-=======
-=======
               <Routes>
                  
                   <Route exact path="/" element={<Home />} />
@@ -51,12 +49,23 @@ const App = () => {
                   <Route path = "/flashcards/:id" element = {<FlashCardsTemplate />} />
                   <Route path="/createcard" element={<CreateFlashCardPage />} />
                   <Route path="/dashboard" element={<Dashboard />} />
+                  <Route path="/communities" element={<CommunityHome />} />
+
+
+
+                  {/* CARD TEST */}
+                  <Route path="/flashcards" element={<HomeCards />} />
+                  <Route path="/newcard" element={<CreateCard />} />
+                  <Route path="/studyset/:id" element={<StudySet />} />
+
                   
               </Routes>
 
             </Router>
->>>>>>> dadd29dda160462e8dfd5165386a58b7697c0e4a
-      
+
+      </PostFormProvider>
+      </UserProvider>
+
     </div>
   );
 }

@@ -4,6 +4,7 @@ import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
+import 'animate.css'
 
 
 
@@ -11,7 +12,7 @@ const Post = ({data}) => {
 
 
   const [vote, setVote]  = useState()
-  const BACKEND_URI = "http://localhost:3000/"
+  const BACKEND_URI = "http://localhost:5000/"
   const {id} = useParams()
   const [comments, setComments] = useState(null)
   const navigate = useNavigate()
@@ -22,7 +23,9 @@ const Post = ({data}) => {
             
   }
   const getcomments = () => {
-    axios.get(BACKEND_URI + `comment/${data._id}`)
+    axios.get(BACKEND_URI + `comment/${data._id}`,{
+        withCredentials: true,
+    })
           .then((res) => {
               setComments(res.data)
           })
@@ -46,14 +49,14 @@ const Post = ({data}) => {
     <>
         <div className='post-container'>
             {data && <div className='upvotes-section'>
-                <i onClick={submitUpvote} class="fa-solid fa-square-caret-up"></i>
-                <span className='upvotes-value'>{data.upvotes}</span>
-                <i class="fa-solid fa-square-caret-down"></i>
+                <div onClick={submitUpvote} ><span  class="iconify" data-icon="akar-icons:arrow-up-thick"></span></div>
+                <span className='upvotes-value animate__animated animate__fadeInDown    '>{data.upvotes}</span>
+                <div><span class="iconify" data-icon="akar-icons:arrow-down-thick"></span></div>
             </div>}
-            <div className='post-content'>
+            <div className='post-content animate__animated animate__fadeIn'>
                 {data ? <div className='post-meta-data'>
                     {<span className='community-tag'></span>}
-                    {<span className='post-author'>Posted by </span>}
+                    {<span className='post-author'>Posted by @{data.author}</span>}
                     {<span className='timestamp'></span>}
                 </div>: <Skeleton/>}
                 <div className='post-text'>
@@ -67,7 +70,7 @@ const Post = ({data}) => {
                     </div>
                     
                 </div>
-               { comments ? <div className='engagement-tray'>
+               { comments ? <div className='engagement-tray animate__animated animate__fadeIn'>
                     <div onClick = {openComments} className='comment-icon'>
                          <i class="fa-regular fa-message"></i> 
                          <span> <span>{comments.length}</span> Comments</span>
@@ -75,6 +78,10 @@ const Post = ({data}) => {
                     <div className='share-icon'>
                          <i class="fa-solid fa-share"></i>
                          <span>Share</span>
+                         <div id='popup'>
+                             <p onClick={ () => {navigator.clipboard.writeText(`http://localhost:3000/comment/${id}`)}}><i class="fa-solid fa-copy"></i>CopyLink</p>
+                             <a href={`https://wa.me/?text=What is your take on this!?- Check it out now at http://localhost:3000/comment/${id}`} target='_blank' ><p><i class="fa-brands fa-whatsapp"></i>Whatsapp</p></a>
+                         </div>
                     </div>
                 </div> : <Skeleton width={"50%"}/>}
                

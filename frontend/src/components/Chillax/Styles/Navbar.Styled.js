@@ -252,6 +252,16 @@ button {
 
   }
 
+  .logout-btn, signup{
+      outline:none;
+      border:none;
+      padding:15px;
+      border-radius:4px;
+      color:black;
+      width: 90px;
+      background-color:orange;
+  }
+ 
 
 
 `

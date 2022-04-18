@@ -9,8 +9,8 @@ router.get('/google', passport.authenticate('google', {scope: ['profile']}))
 
 router.get('/google/callback', passport.authenticate('google', {
 
-    successRedirect: '/',
-    failureRedirect: '/failure'
+    successRedirect: 'http://localhost:3000/'
+    
 }))
 
 router.get('/outlook',
