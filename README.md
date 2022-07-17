@@ -1,6 +1,9 @@
 # Hack-Zero
 Project for EduHack Hackathon 2022 ⚡️⚡️
 
+## Demo
+Watch project demo: https://youtu.be/nZ4JXe6lIBk
+
 ## Installation
 
 ### Clone this repo
